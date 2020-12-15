@@ -1,4 +1,5 @@
 cimport cython
+from cython.parallel import parallel, prange
 
 @cython.wraparound(False)
 @cython.boundscheck(False)            
@@ -21,6 +22,15 @@ cpdef sample({INPUT}[::1] img_flat, {COEFFICIENTS}[::1] coeffs, {INDEX}[::1] idx
     cdef {INDEX} x
     with nogil:
         for x in range(img_flat.shape[0]):
+            if coeffs[x] > 0:
+                result_flat[idx[x]] += img_flat[x]*coeffs[x]
+
+@cython.wraparound(False)
+@cython.boundscheck(False)            
+cpdef sample_parallel({INPUT}[::1] img_flat, {COEFFICIENTS}[::1] coeffs, {INDEX}[::1] idx, {RESULTS}[::1] result_flat, unsigned int nThreads):
+    cdef {INDEX} x
+    with nogil, parallel(num_threads=nThreads):
+        for x in prange(img_flat.shape[0]):
             if coeffs[x] > 0:
                 result_flat[idx[x]] += img_flat[x]*coeffs[x]
 

@@ -1,9 +1,10 @@
 cimport cython
+from cython.parallel import parallel, prange
 
 @cython.wraparound(False)
 @cython.boundscheck(False)            
 cpdef zeros_int32(unsigned long long[::1] arr):
-    cdef unsigned int x
+    cdef unsigned long x
     for x in range(arr.shape[0]):
         arr[x] = 0
 
@@ -11,14 +12,14 @@ cpdef zeros_int32(unsigned long long[::1] arr):
 @cython.boundscheck(False)
 @cython.cdivision(True)
 cpdef normalize(unsigned long long[::1] BP_flat, unsigned long long[::1] norm_flat):
-    cdef unsigned int x
+    cdef unsigned long x
     for x in range(BP_flat.shape[0]):
         BP_flat[x] = BP_flat[x]//norm_flat[x]
 
 @cython.wraparound(False)
 @cython.boundscheck(False)            
-cpdef sample(unsigned char[::1] img_flat, unsigned char[::1] coeffs, unsigned int[::1] idx, unsigned long long[::1] result_flat):
-    cdef unsigned int x
+cpdef sample(unsigned char[::1] img_flat, unsigned char[::1] coeffs, unsigned long[::1] idx, unsigned long long[::1] result_flat):
+    cdef unsigned long x
     with nogil:
         for x in range(img_flat.shape[0]):
             if coeffs[x] > 0:
@@ -26,8 +27,17 @@ cpdef sample(unsigned char[::1] img_flat, unsigned char[::1] coeffs, unsigned in
 
 @cython.wraparound(False)
 @cython.boundscheck(False)            
-cpdef sampleRGB(unsigned char[::1] R, unsigned char[::1] G, unsigned char[::1] B, unsigned char[::1] coeffs, unsigned int[::1] idx, unsigned long long[::1] result_R, unsigned long long[::1] result_G, unsigned long long[::1] result_B):
-    cdef unsigned int x, index
+cpdef sample_parallel(unsigned char[::1] img_flat, unsigned char[::1] coeffs, unsigned long[::1] idx, unsigned long long[::1] result_flat, unsigned int nThreads):
+    cdef unsigned long x
+    with nogil, parallel(num_threads=nThreads):
+        for x in prange(img_flat.shape[0]):
+            if coeffs[x] > 0:
+                result_flat[idx[x]] += img_flat[x]*coeffs[x]
+
+@cython.wraparound(False)
+@cython.boundscheck(False)            
+cpdef sampleRGB(unsigned char[::1] R, unsigned char[::1] G, unsigned char[::1] B, unsigned char[::1] coeffs, unsigned long[::1] idx, unsigned long long[::1] result_R, unsigned long long[::1] result_G, unsigned long long[::1] result_B):
+    cdef unsigned long x, index
     cdef unsigned char coeff
     with nogil:
         for x in range(R.shape[0]):
@@ -40,8 +50,8 @@ cpdef sampleRGB(unsigned char[::1] R, unsigned char[::1] G, unsigned char[::1] B
 
 @cython.wraparound(False)
 @cython.boundscheck(False)            
-cpdef backProject(unsigned long long[::1] result_flat, unsigned char[::1] coeffs, unsigned int[::1] idx, unsigned long long[::1] back_projected):
-    cdef unsigned int x
+cpdef backProject(unsigned long long[::1] result_flat, unsigned char[::1] coeffs, unsigned long[::1] idx, unsigned long long[::1] back_projected):
+    cdef unsigned long x
     with nogil:
         for x in range(back_projected.shape[0]):
             if coeffs[x] > 0:
@@ -49,8 +59,8 @@ cpdef backProject(unsigned long long[::1] result_flat, unsigned char[::1] coeffs
                     
 @cython.wraparound(False)
 @cython.boundscheck(False)
-cpdef backProjectRGB(unsigned long long[::1] result_R, unsigned long long[::1] result_G, unsigned long long[::1] result_B, unsigned char[::1] coeffs, unsigned int[::1] idx, unsigned long long[::1] BP_R, unsigned long long[::1] BP_G, unsigned long long[::1] BP_B):
-    cdef unsigned int x, index
+cpdef backProjectRGB(unsigned long long[::1] result_R, unsigned long long[::1] result_G, unsigned long long[::1] result_B, unsigned char[::1] coeffs, unsigned long[::1] idx, unsigned long long[::1] BP_R, unsigned long long[::1] BP_G, unsigned long long[::1] BP_B):
+    cdef unsigned long x, index
     cdef unsigned char coeff
     with nogil:
         for x in range(BP_R.shape[0]):
