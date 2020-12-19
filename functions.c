@@ -1645,6 +1645,9 @@ static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_dc_uns
 static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_char(PyObject *, int writable_flag);
 
 /* ObjectToMemviewSlice.proto */
+static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_short(PyObject *, int writable_flag);
+
+/* ObjectToMemviewSlice.proto */
 static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_long(PyObject *, int writable_flag);
 
 /* MemviewSliceCopyTemplate.proto */
@@ -1750,6 +1753,7 @@ static void __pyx_memoryview__slice_assign_scalar(char *, Py_ssize_t *, Py_ssize
 static PyObject *__pyx_unpickle_Enum__set_state(struct __pyx_MemviewEnum_obj *, PyObject *); /*proto*/
 static __Pyx_TypeInfo __Pyx_TypeInfo_unsigned_PY_LONG_LONG = { "unsigned long long", NULL, sizeof(unsigned PY_LONG_LONG), { 0 }, 0, IS_UNSIGNED(unsigned PY_LONG_LONG) ? 'U' : 'I', IS_UNSIGNED(unsigned PY_LONG_LONG), 0 };
 static __Pyx_TypeInfo __Pyx_TypeInfo_unsigned_char = { "unsigned char", NULL, sizeof(unsigned char), { 0 }, 0, IS_UNSIGNED(unsigned char) ? 'U' : 'I', IS_UNSIGNED(unsigned char), 0 };
+static __Pyx_TypeInfo __Pyx_TypeInfo_unsigned_short = { "unsigned short", NULL, sizeof(unsigned short), { 0 }, 0, IS_UNSIGNED(unsigned short) ? 'U' : 'I', IS_UNSIGNED(unsigned short), 0 };
 static __Pyx_TypeInfo __Pyx_TypeInfo_unsigned_long = { "unsigned long", NULL, sizeof(unsigned long), { 0 }, 0, IS_UNSIGNED(unsigned long) ? 'U' : 'I', IS_UNSIGNED(unsigned long), 0 };
 #define __Pyx_MODULE_NAME "functions"
 extern int __pyx_module_is_main_functions;
@@ -2321,7 +2325,7 @@ static PyObject *__pyx_pf_9functions_2normalize(CYTHON_UNUSED PyObject *__pyx_se
 /* "functions.pyx":21
  * @cython.wraparound(False)
  * @cython.boundscheck(False)
- * cpdef sample(unsigned char[::1] img_flat, unsigned char[::1] coeffs, unsigned long[::1] idx, unsigned long long[::1] result_flat):             # <<<<<<<<<<<<<<
+ * cpdef sample(unsigned char[::1] img_flat, unsigned short[::1] coeffs, unsigned long[::1] idx, unsigned long long[::1] result_flat):             # <<<<<<<<<<<<<<
  *     cdef unsigned long x
  *     with nogil:
  */
@@ -2342,7 +2346,7 @@ static PyObject *__pyx_f_9functions_sample(__Pyx_memviewslice __pyx_v_img_flat, 
   __Pyx_RefNannySetupContext("sample", 0);
 
   /* "functions.pyx":23
- * cpdef sample(unsigned char[::1] img_flat, unsigned char[::1] coeffs, unsigned long[::1] idx, unsigned long long[::1] result_flat):
+ * cpdef sample(unsigned char[::1] img_flat, unsigned short[::1] coeffs, unsigned long[::1] idx, unsigned long long[::1] result_flat):
  *     cdef unsigned long x
  *     with nogil:             # <<<<<<<<<<<<<<
  *         for x in range(img_flat.shape[0]):
@@ -2376,7 +2380,7 @@ static PyObject *__pyx_f_9functions_sample(__Pyx_memviewslice __pyx_v_img_flat, 
  * 
  */
           __pyx_t_4 = __pyx_v_x;
-          __pyx_t_5 = (((*((unsigned char *) ( /* dim=0 */ ((char *) (((unsigned char *) __pyx_v_coeffs.data) + __pyx_t_4)) ))) > 0) != 0);
+          __pyx_t_5 = (((*((unsigned short *) ( /* dim=0 */ ((char *) (((unsigned short *) __pyx_v_coeffs.data) + __pyx_t_4)) ))) > 0) != 0);
           if (__pyx_t_5) {
 
             /* "functions.pyx":26
@@ -2390,7 +2394,7 @@ static PyObject *__pyx_f_9functions_sample(__Pyx_memviewslice __pyx_v_img_flat, 
             __pyx_t_6 = __pyx_v_x;
             __pyx_t_7 = __pyx_v_x;
             __pyx_t_8 = (*((unsigned long *) ( /* dim=0 */ ((char *) (((unsigned long *) __pyx_v_idx.data) + __pyx_t_7)) )));
-            *((unsigned PY_LONG_LONG *) ( /* dim=0 */ ((char *) (((unsigned PY_LONG_LONG *) __pyx_v_result_flat.data) + __pyx_t_8)) )) += ((*((unsigned char *) ( /* dim=0 */ ((char *) (((unsigned char *) __pyx_v_img_flat.data) + __pyx_t_4)) ))) * (*((unsigned char *) ( /* dim=0 */ ((char *) (((unsigned char *) __pyx_v_coeffs.data) + __pyx_t_6)) ))));
+            *((unsigned PY_LONG_LONG *) ( /* dim=0 */ ((char *) (((unsigned PY_LONG_LONG *) __pyx_v_result_flat.data) + __pyx_t_8)) )) += ((*((unsigned char *) ( /* dim=0 */ ((char *) (((unsigned char *) __pyx_v_img_flat.data) + __pyx_t_4)) ))) * (*((unsigned short *) ( /* dim=0 */ ((char *) (((unsigned short *) __pyx_v_coeffs.data) + __pyx_t_6)) ))));
 
             /* "functions.pyx":25
  *     with nogil:
@@ -2404,7 +2408,7 @@ static PyObject *__pyx_f_9functions_sample(__Pyx_memviewslice __pyx_v_img_flat, 
       }
 
       /* "functions.pyx":23
- * cpdef sample(unsigned char[::1] img_flat, unsigned char[::1] coeffs, unsigned long[::1] idx, unsigned long long[::1] result_flat):
+ * cpdef sample(unsigned char[::1] img_flat, unsigned short[::1] coeffs, unsigned long[::1] idx, unsigned long long[::1] result_flat):
  *     cdef unsigned long x
  *     with nogil:             # <<<<<<<<<<<<<<
  *         for x in range(img_flat.shape[0]):
@@ -2425,7 +2429,7 @@ static PyObject *__pyx_f_9functions_sample(__Pyx_memviewslice __pyx_v_img_flat, 
   /* "functions.pyx":21
  * @cython.wraparound(False)
  * @cython.boundscheck(False)
- * cpdef sample(unsigned char[::1] img_flat, unsigned char[::1] coeffs, unsigned long[::1] idx, unsigned long long[::1] result_flat):             # <<<<<<<<<<<<<<
+ * cpdef sample(unsigned char[::1] img_flat, unsigned short[::1] coeffs, unsigned long[::1] idx, unsigned long long[::1] result_flat):             # <<<<<<<<<<<<<<
  *     cdef unsigned long x
  *     with nogil:
  */
@@ -2504,7 +2508,7 @@ static PyObject *__pyx_pw_9functions_5sample(PyObject *__pyx_self, PyObject *__p
       values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
     }
     __pyx_v_img_flat = __Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_char(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_img_flat.memview)) __PYX_ERR(0, 21, __pyx_L3_error)
-    __pyx_v_coeffs = __Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_char(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_coeffs.memview)) __PYX_ERR(0, 21, __pyx_L3_error)
+    __pyx_v_coeffs = __Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_short(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_coeffs.memview)) __PYX_ERR(0, 21, __pyx_L3_error)
     __pyx_v_idx = __Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_long(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_idx.memview)) __PYX_ERR(0, 21, __pyx_L3_error)
     __pyx_v_result_flat = __Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_PY_LONG_LONG(values[3], PyBUF_WRITABLE); if (unlikely(!__pyx_v_result_flat.memview)) __PYX_ERR(0, 21, __pyx_L3_error)
   }
@@ -2560,7 +2564,7 @@ static PyObject *__pyx_pf_9functions_4sample(CYTHON_UNUSED PyObject *__pyx_self,
 /* "functions.pyx":30
  * @cython.wraparound(False)
  * @cython.boundscheck(False)
- * cpdef sample_parallel(unsigned char[::1] img_flat, unsigned char[::1] coeffs, unsigned long[::1] idx, unsigned long long[::1] result_flat, unsigned int nThreads):             # <<<<<<<<<<<<<<
+ * cpdef sample_parallel(unsigned char[::1] img_flat, unsigned short[::1] coeffs, unsigned long[::1] idx, unsigned long long[::1] result_flat, unsigned int nThreads):             # <<<<<<<<<<<<<<
  *     cdef unsigned long x
  *     with nogil, parallel(num_threads=nThreads):
  */
@@ -2584,7 +2588,7 @@ static PyObject *__pyx_f_9functions_sample_parallel(__Pyx_memviewslice __pyx_v_i
   __Pyx_RefNannySetupContext("sample_parallel", 0);
 
   /* "functions.pyx":32
- * cpdef sample_parallel(unsigned char[::1] img_flat, unsigned char[::1] coeffs, unsigned long[::1] idx, unsigned long long[::1] result_flat, unsigned int nThreads):
+ * cpdef sample_parallel(unsigned char[::1] img_flat, unsigned short[::1] coeffs, unsigned long[::1] idx, unsigned long long[::1] result_flat, unsigned int nThreads):
  *     cdef unsigned long x
  *     with nogil, parallel(num_threads=nThreads):             # <<<<<<<<<<<<<<
  *         for x in prange(img_flat.shape[0]):
@@ -2648,7 +2652,7 @@ static PyObject *__pyx_f_9functions_sample_parallel(__Pyx_memviewslice __pyx_v_i
  * 
  */
                                 __pyx_t_4 = __pyx_v_x;
-                                __pyx_t_5 = (((*((unsigned char *) ( /* dim=0 */ ((char *) (((unsigned char *) __pyx_v_coeffs.data) + __pyx_t_4)) ))) > 0) != 0);
+                                __pyx_t_5 = (((*((unsigned short *) ( /* dim=0 */ ((char *) (((unsigned short *) __pyx_v_coeffs.data) + __pyx_t_4)) ))) > 0) != 0);
                                 if (__pyx_t_5) {
 
                                   /* "functions.pyx":35
@@ -2662,7 +2666,7 @@ static PyObject *__pyx_f_9functions_sample_parallel(__Pyx_memviewslice __pyx_v_i
                                   __pyx_t_6 = __pyx_v_x;
                                   __pyx_t_7 = __pyx_v_x;
                                   __pyx_t_8 = (*((unsigned long *) ( /* dim=0 */ ((char *) (((unsigned long *) __pyx_v_idx.data) + __pyx_t_7)) )));
-                                  *((unsigned PY_LONG_LONG *) ( /* dim=0 */ ((char *) (((unsigned PY_LONG_LONG *) __pyx_v_result_flat.data) + __pyx_t_8)) )) += ((*((unsigned char *) ( /* dim=0 */ ((char *) (((unsigned char *) __pyx_v_img_flat.data) + __pyx_t_4)) ))) * (*((unsigned char *) ( /* dim=0 */ ((char *) (((unsigned char *) __pyx_v_coeffs.data) + __pyx_t_6)) ))));
+                                  *((unsigned PY_LONG_LONG *) ( /* dim=0 */ ((char *) (((unsigned PY_LONG_LONG *) __pyx_v_result_flat.data) + __pyx_t_8)) )) += ((*((unsigned char *) ( /* dim=0 */ ((char *) (((unsigned char *) __pyx_v_img_flat.data) + __pyx_t_4)) ))) * (*((unsigned short *) ( /* dim=0 */ ((char *) (((unsigned short *) __pyx_v_coeffs.data) + __pyx_t_6)) ))));
 
                                   /* "functions.pyx":34
  *     with nogil, parallel(num_threads=nThreads):
@@ -2744,7 +2748,7 @@ static PyObject *__pyx_f_9functions_sample_parallel(__Pyx_memviewslice __pyx_v_i
       }
 
       /* "functions.pyx":32
- * cpdef sample_parallel(unsigned char[::1] img_flat, unsigned char[::1] coeffs, unsigned long[::1] idx, unsigned long long[::1] result_flat, unsigned int nThreads):
+ * cpdef sample_parallel(unsigned char[::1] img_flat, unsigned short[::1] coeffs, unsigned long[::1] idx, unsigned long long[::1] result_flat, unsigned int nThreads):
  *     cdef unsigned long x
  *     with nogil, parallel(num_threads=nThreads):             # <<<<<<<<<<<<<<
  *         for x in prange(img_flat.shape[0]):
@@ -2772,7 +2776,7 @@ static PyObject *__pyx_f_9functions_sample_parallel(__Pyx_memviewslice __pyx_v_i
   /* "functions.pyx":30
  * @cython.wraparound(False)
  * @cython.boundscheck(False)
- * cpdef sample_parallel(unsigned char[::1] img_flat, unsigned char[::1] coeffs, unsigned long[::1] idx, unsigned long long[::1] result_flat, unsigned int nThreads):             # <<<<<<<<<<<<<<
+ * cpdef sample_parallel(unsigned char[::1] img_flat, unsigned short[::1] coeffs, unsigned long[::1] idx, unsigned long long[::1] result_flat, unsigned int nThreads):             # <<<<<<<<<<<<<<
  *     cdef unsigned long x
  *     with nogil, parallel(num_threads=nThreads):
  */
@@ -2866,7 +2870,7 @@ static PyObject *__pyx_pw_9functions_7sample_parallel(PyObject *__pyx_self, PyOb
       values[4] = PyTuple_GET_ITEM(__pyx_args, 4);
     }
     __pyx_v_img_flat = __Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_char(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_img_flat.memview)) __PYX_ERR(0, 30, __pyx_L3_error)
-    __pyx_v_coeffs = __Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_char(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_coeffs.memview)) __PYX_ERR(0, 30, __pyx_L3_error)
+    __pyx_v_coeffs = __Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_short(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_coeffs.memview)) __PYX_ERR(0, 30, __pyx_L3_error)
     __pyx_v_idx = __Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_long(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_idx.memview)) __PYX_ERR(0, 30, __pyx_L3_error)
     __pyx_v_result_flat = __Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_PY_LONG_LONG(values[3], PyBUF_WRITABLE); if (unlikely(!__pyx_v_result_flat.memview)) __PYX_ERR(0, 30, __pyx_L3_error)
     __pyx_v_nThreads = __Pyx_PyInt_As_unsigned_int(values[4]); if (unlikely((__pyx_v_nThreads == (unsigned int)-1) && PyErr_Occurred())) __PYX_ERR(0, 30, __pyx_L3_error)
@@ -2923,16 +2927,16 @@ static PyObject *__pyx_pf_9functions_6sample_parallel(CYTHON_UNUSED PyObject *__
 /* "functions.pyx":39
  * @cython.wraparound(False)
  * @cython.boundscheck(False)
- * cpdef sampleRGB(unsigned char[::1] R, unsigned char[::1] G, unsigned char[::1] B, unsigned char[::1] coeffs, unsigned long[::1] idx, unsigned long long[::1] result_R, unsigned long long[::1] result_G, unsigned long long[::1] result_B):             # <<<<<<<<<<<<<<
+ * cpdef sampleRGB(unsigned char[::1] R, unsigned char[::1] G, unsigned char[::1] B, unsigned short[::1] coeffs, unsigned long[::1] idx, unsigned long long[::1] result_R, unsigned long long[::1] result_G, unsigned long long[::1] result_B):             # <<<<<<<<<<<<<<
  *     cdef unsigned long x, index
- *     cdef unsigned char coeff
+ *     cdef unsigned short coeff
  */
 
 static PyObject *__pyx_pw_9functions_9sampleRGB(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
 static PyObject *__pyx_f_9functions_sampleRGB(__Pyx_memviewslice __pyx_v_R, __Pyx_memviewslice __pyx_v_G, __Pyx_memviewslice __pyx_v_B, __Pyx_memviewslice __pyx_v_coeffs, __Pyx_memviewslice __pyx_v_idx, __Pyx_memviewslice __pyx_v_result_R, __Pyx_memviewslice __pyx_v_result_G, __Pyx_memviewslice __pyx_v_result_B, CYTHON_UNUSED int __pyx_skip_dispatch) {
   unsigned long __pyx_v_x;
   unsigned long __pyx_v_index;
-  unsigned char __pyx_v_coeff;
+  unsigned short __pyx_v_coeff;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   Py_ssize_t __pyx_t_1;
@@ -2945,7 +2949,7 @@ static PyObject *__pyx_f_9functions_sampleRGB(__Pyx_memviewslice __pyx_v_R, __Py
 
   /* "functions.pyx":42
  *     cdef unsigned long x, index
- *     cdef unsigned char coeff
+ *     cdef unsigned short coeff
  *     with nogil:             # <<<<<<<<<<<<<<
  *         for x in range(R.shape[0]):
  *             coeff = coeffs[x]
@@ -2959,7 +2963,7 @@ static PyObject *__pyx_f_9functions_sampleRGB(__Pyx_memviewslice __pyx_v_R, __Py
       /*try:*/ {
 
         /* "functions.pyx":43
- *     cdef unsigned char coeff
+ *     cdef unsigned short coeff
  *     with nogil:
  *         for x in range(R.shape[0]):             # <<<<<<<<<<<<<<
  *             coeff = coeffs[x]
@@ -2978,7 +2982,7 @@ static PyObject *__pyx_f_9functions_sampleRGB(__Pyx_memviewslice __pyx_v_R, __Py
  *                 index = idx[x]
  */
           __pyx_t_4 = __pyx_v_x;
-          __pyx_v_coeff = (*((unsigned char *) ( /* dim=0 */ ((char *) (((unsigned char *) __pyx_v_coeffs.data) + __pyx_t_4)) )));
+          __pyx_v_coeff = (*((unsigned short *) ( /* dim=0 */ ((char *) (((unsigned short *) __pyx_v_coeffs.data) + __pyx_t_4)) )));
 
           /* "functions.pyx":45
  *         for x in range(R.shape[0]):
@@ -3046,7 +3050,7 @@ static PyObject *__pyx_f_9functions_sampleRGB(__Pyx_memviewslice __pyx_v_R, __Py
 
       /* "functions.pyx":42
  *     cdef unsigned long x, index
- *     cdef unsigned char coeff
+ *     cdef unsigned short coeff
  *     with nogil:             # <<<<<<<<<<<<<<
  *         for x in range(R.shape[0]):
  *             coeff = coeffs[x]
@@ -3066,9 +3070,9 @@ static PyObject *__pyx_f_9functions_sampleRGB(__Pyx_memviewslice __pyx_v_R, __Py
   /* "functions.pyx":39
  * @cython.wraparound(False)
  * @cython.boundscheck(False)
- * cpdef sampleRGB(unsigned char[::1] R, unsigned char[::1] G, unsigned char[::1] B, unsigned char[::1] coeffs, unsigned long[::1] idx, unsigned long long[::1] result_R, unsigned long long[::1] result_G, unsigned long long[::1] result_B):             # <<<<<<<<<<<<<<
+ * cpdef sampleRGB(unsigned char[::1] R, unsigned char[::1] G, unsigned char[::1] B, unsigned short[::1] coeffs, unsigned long[::1] idx, unsigned long long[::1] result_R, unsigned long long[::1] result_G, unsigned long long[::1] result_B):             # <<<<<<<<<<<<<<
  *     cdef unsigned long x, index
- *     cdef unsigned char coeff
+ *     cdef unsigned short coeff
  */
 
   /* function exit code */
@@ -3187,7 +3191,7 @@ static PyObject *__pyx_pw_9functions_9sampleRGB(PyObject *__pyx_self, PyObject *
     __pyx_v_R = __Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_char(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_R.memview)) __PYX_ERR(0, 39, __pyx_L3_error)
     __pyx_v_G = __Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_char(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_G.memview)) __PYX_ERR(0, 39, __pyx_L3_error)
     __pyx_v_B = __Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_char(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_B.memview)) __PYX_ERR(0, 39, __pyx_L3_error)
-    __pyx_v_coeffs = __Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_char(values[3], PyBUF_WRITABLE); if (unlikely(!__pyx_v_coeffs.memview)) __PYX_ERR(0, 39, __pyx_L3_error)
+    __pyx_v_coeffs = __Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_short(values[3], PyBUF_WRITABLE); if (unlikely(!__pyx_v_coeffs.memview)) __PYX_ERR(0, 39, __pyx_L3_error)
     __pyx_v_idx = __Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_long(values[4], PyBUF_WRITABLE); if (unlikely(!__pyx_v_idx.memview)) __PYX_ERR(0, 39, __pyx_L3_error)
     __pyx_v_result_R = __Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_PY_LONG_LONG(values[5], PyBUF_WRITABLE); if (unlikely(!__pyx_v_result_R.memview)) __PYX_ERR(0, 39, __pyx_L3_error)
     __pyx_v_result_G = __Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_PY_LONG_LONG(values[6], PyBUF_WRITABLE); if (unlikely(!__pyx_v_result_G.memview)) __PYX_ERR(0, 39, __pyx_L3_error)
@@ -3253,7 +3257,7 @@ static PyObject *__pyx_pf_9functions_8sampleRGB(CYTHON_UNUSED PyObject *__pyx_se
 /* "functions.pyx":53
  * @cython.wraparound(False)
  * @cython.boundscheck(False)
- * cpdef backProject(unsigned long long[::1] result_flat, unsigned char[::1] coeffs, unsigned long[::1] idx, unsigned long long[::1] back_projected):             # <<<<<<<<<<<<<<
+ * cpdef backProject(unsigned long long[::1] result_flat, unsigned short[::1] coeffs, unsigned long[::1] idx, unsigned long long[::1] back_projected):             # <<<<<<<<<<<<<<
  *     cdef unsigned long x
  *     with nogil:
  */
@@ -3274,7 +3278,7 @@ static PyObject *__pyx_f_9functions_backProject(__Pyx_memviewslice __pyx_v_resul
   __Pyx_RefNannySetupContext("backProject", 0);
 
   /* "functions.pyx":55
- * cpdef backProject(unsigned long long[::1] result_flat, unsigned char[::1] coeffs, unsigned long[::1] idx, unsigned long long[::1] back_projected):
+ * cpdef backProject(unsigned long long[::1] result_flat, unsigned short[::1] coeffs, unsigned long[::1] idx, unsigned long long[::1] back_projected):
  *     cdef unsigned long x
  *     with nogil:             # <<<<<<<<<<<<<<
  *         for x in range(back_projected.shape[0]):
@@ -3308,7 +3312,7 @@ static PyObject *__pyx_f_9functions_backProject(__Pyx_memviewslice __pyx_v_resul
  * 
  */
           __pyx_t_4 = __pyx_v_x;
-          __pyx_t_5 = (((*((unsigned char *) ( /* dim=0 */ ((char *) (((unsigned char *) __pyx_v_coeffs.data) + __pyx_t_4)) ))) > 0) != 0);
+          __pyx_t_5 = (((*((unsigned short *) ( /* dim=0 */ ((char *) (((unsigned short *) __pyx_v_coeffs.data) + __pyx_t_4)) ))) > 0) != 0);
           if (__pyx_t_5) {
 
             /* "functions.pyx":58
@@ -3322,7 +3326,7 @@ static PyObject *__pyx_f_9functions_backProject(__Pyx_memviewslice __pyx_v_resul
             __pyx_t_6 = (*((unsigned long *) ( /* dim=0 */ ((char *) (((unsigned long *) __pyx_v_idx.data) + __pyx_t_4)) )));
             __pyx_t_7 = __pyx_v_x;
             __pyx_t_8 = __pyx_v_x;
-            *((unsigned PY_LONG_LONG *) ( /* dim=0 */ ((char *) (((unsigned PY_LONG_LONG *) __pyx_v_back_projected.data) + __pyx_t_8)) )) += ((*((unsigned PY_LONG_LONG *) ( /* dim=0 */ ((char *) (((unsigned PY_LONG_LONG *) __pyx_v_result_flat.data) + __pyx_t_6)) ))) * (*((unsigned char *) ( /* dim=0 */ ((char *) (((unsigned char *) __pyx_v_coeffs.data) + __pyx_t_7)) ))));
+            *((unsigned PY_LONG_LONG *) ( /* dim=0 */ ((char *) (((unsigned PY_LONG_LONG *) __pyx_v_back_projected.data) + __pyx_t_8)) )) += ((*((unsigned PY_LONG_LONG *) ( /* dim=0 */ ((char *) (((unsigned PY_LONG_LONG *) __pyx_v_result_flat.data) + __pyx_t_6)) ))) * (*((unsigned short *) ( /* dim=0 */ ((char *) (((unsigned short *) __pyx_v_coeffs.data) + __pyx_t_7)) ))));
 
             /* "functions.pyx":57
  *     with nogil:
@@ -3336,7 +3340,7 @@ static PyObject *__pyx_f_9functions_backProject(__Pyx_memviewslice __pyx_v_resul
       }
 
       /* "functions.pyx":55
- * cpdef backProject(unsigned long long[::1] result_flat, unsigned char[::1] coeffs, unsigned long[::1] idx, unsigned long long[::1] back_projected):
+ * cpdef backProject(unsigned long long[::1] result_flat, unsigned short[::1] coeffs, unsigned long[::1] idx, unsigned long long[::1] back_projected):
  *     cdef unsigned long x
  *     with nogil:             # <<<<<<<<<<<<<<
  *         for x in range(back_projected.shape[0]):
@@ -3357,7 +3361,7 @@ static PyObject *__pyx_f_9functions_backProject(__Pyx_memviewslice __pyx_v_resul
   /* "functions.pyx":53
  * @cython.wraparound(False)
  * @cython.boundscheck(False)
- * cpdef backProject(unsigned long long[::1] result_flat, unsigned char[::1] coeffs, unsigned long[::1] idx, unsigned long long[::1] back_projected):             # <<<<<<<<<<<<<<
+ * cpdef backProject(unsigned long long[::1] result_flat, unsigned short[::1] coeffs, unsigned long[::1] idx, unsigned long long[::1] back_projected):             # <<<<<<<<<<<<<<
  *     cdef unsigned long x
  *     with nogil:
  */
@@ -3436,7 +3440,7 @@ static PyObject *__pyx_pw_9functions_11backProject(PyObject *__pyx_self, PyObjec
       values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
     }
     __pyx_v_result_flat = __Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_PY_LONG_LONG(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_result_flat.memview)) __PYX_ERR(0, 53, __pyx_L3_error)
-    __pyx_v_coeffs = __Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_char(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_coeffs.memview)) __PYX_ERR(0, 53, __pyx_L3_error)
+    __pyx_v_coeffs = __Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_short(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_coeffs.memview)) __PYX_ERR(0, 53, __pyx_L3_error)
     __pyx_v_idx = __Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_long(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_idx.memview)) __PYX_ERR(0, 53, __pyx_L3_error)
     __pyx_v_back_projected = __Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_PY_LONG_LONG(values[3], PyBUF_WRITABLE); if (unlikely(!__pyx_v_back_projected.memview)) __PYX_ERR(0, 53, __pyx_L3_error)
   }
@@ -3492,16 +3496,16 @@ static PyObject *__pyx_pf_9functions_10backProject(CYTHON_UNUSED PyObject *__pyx
 /* "functions.pyx":62
  * @cython.wraparound(False)
  * @cython.boundscheck(False)
- * cpdef backProjectRGB(unsigned long long[::1] result_R, unsigned long long[::1] result_G, unsigned long long[::1] result_B, unsigned char[::1] coeffs, unsigned long[::1] idx, unsigned long long[::1] BP_R, unsigned long long[::1] BP_G, unsigned long long[::1] BP_B):             # <<<<<<<<<<<<<<
+ * cpdef backProjectRGB(unsigned long long[::1] result_R, unsigned long long[::1] result_G, unsigned long long[::1] result_B, unsigned short[::1] coeffs, unsigned long[::1] idx, unsigned long long[::1] BP_R, unsigned long long[::1] BP_G, unsigned long long[::1] BP_B):             # <<<<<<<<<<<<<<
  *     cdef unsigned long x, index
- *     cdef unsigned char coeff
+ *     cdef unsigned short coeff
  */
 
 static PyObject *__pyx_pw_9functions_13backProjectRGB(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
 static PyObject *__pyx_f_9functions_backProjectRGB(__Pyx_memviewslice __pyx_v_result_R, __Pyx_memviewslice __pyx_v_result_G, __Pyx_memviewslice __pyx_v_result_B, __Pyx_memviewslice __pyx_v_coeffs, __Pyx_memviewslice __pyx_v_idx, __Pyx_memviewslice __pyx_v_BP_R, __Pyx_memviewslice __pyx_v_BP_G, __Pyx_memviewslice __pyx_v_BP_B, CYTHON_UNUSED int __pyx_skip_dispatch) {
   unsigned long __pyx_v_x;
   unsigned long __pyx_v_index;
-  unsigned char __pyx_v_coeff;
+  unsigned short __pyx_v_coeff;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   Py_ssize_t __pyx_t_1;
@@ -3515,7 +3519,7 @@ static PyObject *__pyx_f_9functions_backProjectRGB(__Pyx_memviewslice __pyx_v_re
 
   /* "functions.pyx":65
  *     cdef unsigned long x, index
- *     cdef unsigned char coeff
+ *     cdef unsigned short coeff
  *     with nogil:             # <<<<<<<<<<<<<<
  *         for x in range(BP_R.shape[0]):
  *             coeff = coeffs[x]
@@ -3529,7 +3533,7 @@ static PyObject *__pyx_f_9functions_backProjectRGB(__Pyx_memviewslice __pyx_v_re
       /*try:*/ {
 
         /* "functions.pyx":66
- *     cdef unsigned char coeff
+ *     cdef unsigned short coeff
  *     with nogil:
  *         for x in range(BP_R.shape[0]):             # <<<<<<<<<<<<<<
  *             coeff = coeffs[x]
@@ -3548,7 +3552,7 @@ static PyObject *__pyx_f_9functions_backProjectRGB(__Pyx_memviewslice __pyx_v_re
  *                 index = idx[x]
  */
           __pyx_t_4 = __pyx_v_x;
-          __pyx_v_coeff = (*((unsigned char *) ( /* dim=0 */ ((char *) (((unsigned char *) __pyx_v_coeffs.data) + __pyx_t_4)) )));
+          __pyx_v_coeff = (*((unsigned short *) ( /* dim=0 */ ((char *) (((unsigned short *) __pyx_v_coeffs.data) + __pyx_t_4)) )));
 
           /* "functions.pyx":68
  *         for x in range(BP_R.shape[0]):
@@ -3580,7 +3584,7 @@ static PyObject *__pyx_f_9functions_backProjectRGB(__Pyx_memviewslice __pyx_v_re
             __pyx_t_4 = __pyx_v_index;
             __pyx_t_6 = __pyx_v_x;
             __pyx_t_7 = __pyx_v_x;
-            *((unsigned PY_LONG_LONG *) ( /* dim=0 */ ((char *) (((unsigned PY_LONG_LONG *) __pyx_v_BP_R.data) + __pyx_t_7)) )) += ((*((unsigned PY_LONG_LONG *) ( /* dim=0 */ ((char *) (((unsigned PY_LONG_LONG *) __pyx_v_result_R.data) + __pyx_t_4)) ))) * (*((unsigned char *) ( /* dim=0 */ ((char *) (((unsigned char *) __pyx_v_coeffs.data) + __pyx_t_6)) ))));
+            *((unsigned PY_LONG_LONG *) ( /* dim=0 */ ((char *) (((unsigned PY_LONG_LONG *) __pyx_v_BP_R.data) + __pyx_t_7)) )) += ((*((unsigned PY_LONG_LONG *) ( /* dim=0 */ ((char *) (((unsigned PY_LONG_LONG *) __pyx_v_result_R.data) + __pyx_t_4)) ))) * (*((unsigned short *) ( /* dim=0 */ ((char *) (((unsigned short *) __pyx_v_coeffs.data) + __pyx_t_6)) ))));
 
             /* "functions.pyx":71
  *                 index = idx[x]
@@ -3591,7 +3595,7 @@ static PyObject *__pyx_f_9functions_backProjectRGB(__Pyx_memviewslice __pyx_v_re
             __pyx_t_6 = __pyx_v_index;
             __pyx_t_4 = __pyx_v_x;
             __pyx_t_7 = __pyx_v_x;
-            *((unsigned PY_LONG_LONG *) ( /* dim=0 */ ((char *) (((unsigned PY_LONG_LONG *) __pyx_v_BP_G.data) + __pyx_t_7)) )) += ((*((unsigned PY_LONG_LONG *) ( /* dim=0 */ ((char *) (((unsigned PY_LONG_LONG *) __pyx_v_result_G.data) + __pyx_t_6)) ))) * (*((unsigned char *) ( /* dim=0 */ ((char *) (((unsigned char *) __pyx_v_coeffs.data) + __pyx_t_4)) ))));
+            *((unsigned PY_LONG_LONG *) ( /* dim=0 */ ((char *) (((unsigned PY_LONG_LONG *) __pyx_v_BP_G.data) + __pyx_t_7)) )) += ((*((unsigned PY_LONG_LONG *) ( /* dim=0 */ ((char *) (((unsigned PY_LONG_LONG *) __pyx_v_result_G.data) + __pyx_t_6)) ))) * (*((unsigned short *) ( /* dim=0 */ ((char *) (((unsigned short *) __pyx_v_coeffs.data) + __pyx_t_4)) ))));
 
             /* "functions.pyx":72
  *                 BP_R[x] += result_R[index]*coeffs[x]
@@ -3601,7 +3605,7 @@ static PyObject *__pyx_f_9functions_backProjectRGB(__Pyx_memviewslice __pyx_v_re
             __pyx_t_4 = __pyx_v_index;
             __pyx_t_6 = __pyx_v_x;
             __pyx_t_7 = __pyx_v_x;
-            *((unsigned PY_LONG_LONG *) ( /* dim=0 */ ((char *) (((unsigned PY_LONG_LONG *) __pyx_v_BP_B.data) + __pyx_t_7)) )) += ((*((unsigned PY_LONG_LONG *) ( /* dim=0 */ ((char *) (((unsigned PY_LONG_LONG *) __pyx_v_result_B.data) + __pyx_t_4)) ))) * (*((unsigned char *) ( /* dim=0 */ ((char *) (((unsigned char *) __pyx_v_coeffs.data) + __pyx_t_6)) ))));
+            *((unsigned PY_LONG_LONG *) ( /* dim=0 */ ((char *) (((unsigned PY_LONG_LONG *) __pyx_v_BP_B.data) + __pyx_t_7)) )) += ((*((unsigned PY_LONG_LONG *) ( /* dim=0 */ ((char *) (((unsigned PY_LONG_LONG *) __pyx_v_result_B.data) + __pyx_t_4)) ))) * (*((unsigned short *) ( /* dim=0 */ ((char *) (((unsigned short *) __pyx_v_coeffs.data) + __pyx_t_6)) ))));
 
             /* "functions.pyx":68
  *         for x in range(BP_R.shape[0]):
@@ -3616,7 +3620,7 @@ static PyObject *__pyx_f_9functions_backProjectRGB(__Pyx_memviewslice __pyx_v_re
 
       /* "functions.pyx":65
  *     cdef unsigned long x, index
- *     cdef unsigned char coeff
+ *     cdef unsigned short coeff
  *     with nogil:             # <<<<<<<<<<<<<<
  *         for x in range(BP_R.shape[0]):
  *             coeff = coeffs[x]
@@ -3636,9 +3640,9 @@ static PyObject *__pyx_f_9functions_backProjectRGB(__Pyx_memviewslice __pyx_v_re
   /* "functions.pyx":62
  * @cython.wraparound(False)
  * @cython.boundscheck(False)
- * cpdef backProjectRGB(unsigned long long[::1] result_R, unsigned long long[::1] result_G, unsigned long long[::1] result_B, unsigned char[::1] coeffs, unsigned long[::1] idx, unsigned long long[::1] BP_R, unsigned long long[::1] BP_G, unsigned long long[::1] BP_B):             # <<<<<<<<<<<<<<
+ * cpdef backProjectRGB(unsigned long long[::1] result_R, unsigned long long[::1] result_G, unsigned long long[::1] result_B, unsigned short[::1] coeffs, unsigned long[::1] idx, unsigned long long[::1] BP_R, unsigned long long[::1] BP_G, unsigned long long[::1] BP_B):             # <<<<<<<<<<<<<<
  *     cdef unsigned long x, index
- *     cdef unsigned char coeff
+ *     cdef unsigned short coeff
  */
 
   /* function exit code */
@@ -3757,7 +3761,7 @@ static PyObject *__pyx_pw_9functions_13backProjectRGB(PyObject *__pyx_self, PyOb
     __pyx_v_result_R = __Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_PY_LONG_LONG(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_result_R.memview)) __PYX_ERR(0, 62, __pyx_L3_error)
     __pyx_v_result_G = __Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_PY_LONG_LONG(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_result_G.memview)) __PYX_ERR(0, 62, __pyx_L3_error)
     __pyx_v_result_B = __Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_PY_LONG_LONG(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_result_B.memview)) __PYX_ERR(0, 62, __pyx_L3_error)
-    __pyx_v_coeffs = __Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_char(values[3], PyBUF_WRITABLE); if (unlikely(!__pyx_v_coeffs.memview)) __PYX_ERR(0, 62, __pyx_L3_error)
+    __pyx_v_coeffs = __Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_short(values[3], PyBUF_WRITABLE); if (unlikely(!__pyx_v_coeffs.memview)) __PYX_ERR(0, 62, __pyx_L3_error)
     __pyx_v_idx = __Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_long(values[4], PyBUF_WRITABLE); if (unlikely(!__pyx_v_idx.memview)) __PYX_ERR(0, 62, __pyx_L3_error)
     __pyx_v_BP_R = __Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_PY_LONG_LONG(values[5], PyBUF_WRITABLE); if (unlikely(!__pyx_v_BP_R.memview)) __PYX_ERR(0, 62, __pyx_L3_error)
     __pyx_v_BP_G = __Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_PY_LONG_LONG(values[6], PyBUF_WRITABLE); if (unlikely(!__pyx_v_BP_G.memview)) __PYX_ERR(0, 62, __pyx_L3_error)
@@ -21507,6 +21511,29 @@ __pyx_fail:
     retcode = __Pyx_ValidateAndInit_memviewslice(axes_specs, __Pyx_IS_C_CONTIG,
                                                  (PyBUF_C_CONTIGUOUS | PyBUF_FORMAT) | writable_flag, 1,
                                                  &__Pyx_TypeInfo_unsigned_char, stack,
+                                                 &result, obj);
+    if (unlikely(retcode == -1))
+        goto __pyx_fail;
+    return result;
+__pyx_fail:
+    result.memview = NULL;
+    result.data = NULL;
+    return result;
+}
+
+/* ObjectToMemviewSlice */
+  static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_short(PyObject *obj, int writable_flag) {
+    __Pyx_memviewslice result = { 0, 0, { 0 }, { 0 }, { 0 } };
+    __Pyx_BufFmt_StackElem stack[1];
+    int axes_specs[] = { (__Pyx_MEMVIEW_DIRECT | __Pyx_MEMVIEW_CONTIG) };
+    int retcode;
+    if (obj == Py_None) {
+        result.memview = (struct __pyx_memoryview_obj *) Py_None;
+        return result;
+    }
+    retcode = __Pyx_ValidateAndInit_memviewslice(axes_specs, __Pyx_IS_C_CONTIG,
+                                                 (PyBUF_C_CONTIGUOUS | PyBUF_FORMAT) | writable_flag, 1,
+                                                 &__Pyx_TypeInfo_unsigned_short, stack,
                                                  &result, obj);
     if (unlikely(retcode == -1))
         goto __pyx_fail;
