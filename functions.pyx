@@ -52,7 +52,7 @@ cpdef sample(unsigned char[::1] img_flat, unsigned short[::1] coeffs, unsigned l
 cpdef backProject(unsigned long long[::1] result_flat, unsigned short[::1] coeffs, unsigned long[::1] idx, unsigned long long[::1] back_projected):
     cdef unsigned long x
     with nogil:
-        for x in range(back_projected.shape[0]):
+        for x in range(coeffs.shape[0]):
             if coeffs[x] > 0:
                  back_projected[x] += result_flat[idx[x]]*coeffs[x]
 

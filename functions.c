@@ -3089,7 +3089,7 @@ static PyObject *__pyx_f_9functions_backProject(__Pyx_memviewslice __pyx_v_resul
  * cpdef backProject(unsigned long long[::1] result_flat, unsigned short[::1] coeffs, unsigned long[::1] idx, unsigned long long[::1] back_projected):
  *     cdef unsigned long x
  *     with nogil:             # <<<<<<<<<<<<<<
- *         for x in range(back_projected.shape[0]):
+ *         for x in range(coeffs.shape[0]):
  *             if coeffs[x] > 0:
  */
   {
@@ -3103,18 +3103,18 @@ static PyObject *__pyx_f_9functions_backProject(__Pyx_memviewslice __pyx_v_resul
         /* "functions.pyx":55
  *     cdef unsigned long x
  *     with nogil:
- *         for x in range(back_projected.shape[0]):             # <<<<<<<<<<<<<<
+ *         for x in range(coeffs.shape[0]):             # <<<<<<<<<<<<<<
  *             if coeffs[x] > 0:
  *                  back_projected[x] += result_flat[idx[x]]*coeffs[x]
  */
-        __pyx_t_1 = (__pyx_v_back_projected.shape[0]);
+        __pyx_t_1 = (__pyx_v_coeffs.shape[0]);
         __pyx_t_2 = __pyx_t_1;
         for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
           __pyx_v_x = __pyx_t_3;
 
           /* "functions.pyx":56
  *     with nogil:
- *         for x in range(back_projected.shape[0]):
+ *         for x in range(coeffs.shape[0]):
  *             if coeffs[x] > 0:             # <<<<<<<<<<<<<<
  *                  back_projected[x] += result_flat[idx[x]]*coeffs[x]
  * 
@@ -3124,7 +3124,7 @@ static PyObject *__pyx_f_9functions_backProject(__Pyx_memviewslice __pyx_v_resul
           if (__pyx_t_5) {
 
             /* "functions.pyx":57
- *         for x in range(back_projected.shape[0]):
+ *         for x in range(coeffs.shape[0]):
  *             if coeffs[x] > 0:
  *                  back_projected[x] += result_flat[idx[x]]*coeffs[x]             # <<<<<<<<<<<<<<
  * 
@@ -3138,7 +3138,7 @@ static PyObject *__pyx_f_9functions_backProject(__Pyx_memviewslice __pyx_v_resul
 
             /* "functions.pyx":56
  *     with nogil:
- *         for x in range(back_projected.shape[0]):
+ *         for x in range(coeffs.shape[0]):
  *             if coeffs[x] > 0:             # <<<<<<<<<<<<<<
  *                  back_projected[x] += result_flat[idx[x]]*coeffs[x]
  * 
@@ -3151,7 +3151,7 @@ static PyObject *__pyx_f_9functions_backProject(__Pyx_memviewslice __pyx_v_resul
  * cpdef backProject(unsigned long long[::1] result_flat, unsigned short[::1] coeffs, unsigned long[::1] idx, unsigned long long[::1] back_projected):
  *     cdef unsigned long x
  *     with nogil:             # <<<<<<<<<<<<<<
- *         for x in range(back_projected.shape[0]):
+ *         for x in range(coeffs.shape[0]):
  *             if coeffs[x] > 0:
  */
       /*finally:*/ {

@@ -52,7 +52,7 @@ cpdef sample({INPUT}[::1] img_flat, {COEFFICIENTS}[::1] coeffs, {INDEX}[::1] idx
 cpdef backProject({RESULTS}[::1] result_flat, {COEFFICIENTS}[::1] coeffs, {INDEX}[::1] idx, {BAKC_PROJECTED}[::1] back_projected):
     cdef {INDEX} x
     with nogil:
-        for x in range(back_projected.shape[0]):
+        for x in range(coeffs.shape[0]):
             if coeffs[x] > 0:
                  back_projected[x] += result_flat[idx[x]]*coeffs[x]
 
@@ -76,7 +76,7 @@ cpdef backProjectRGB({RESULTS}[::1] result_R, {RESULTS}[::1] result_G, {RESULTS}
     cdef {INDEX} x, index
     cdef {COEFFICIENTS} coeff
     with nogil:
-        for x in range(BP_R.shape[0]):
+        for x in range(coeffs.shape[0]):
             coeff = coeffs[x]
             if coeff > 0:
                 index = idx[x]
