@@ -558,12 +558,13 @@ static PyObject *__pyx_pf_9functions_get_bounds(CYTHON_UNUSED PyObject *__pyx_se
   if (__pyx_t_11) {
 /* … */
   }
-</pre><pre class="cython line score-0" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">14</span>:         <span class="n">ret_x2</span> <span class="o">=</span> <span class="n">img_x2</span><span class="o">-</span><span class="n">input_resolution</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span></pre>
+</pre><pre class="cython line score-0" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">14</span>:         <span class="n">ret_x2</span> <span class="o">=</span> <span class="n">retina_size</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span><span class="o">-</span><span class="p">(</span><span class="n">img_x2</span><span class="o">-</span><span class="n">input_resolution</span><span class="p">[</span><span class="mf">1</span><span class="p">])</span></pre>
 <pre class='cython code score-0 '>    __pyx_t_1 = 1;
-    __pyx_v_ret_x2 = (__pyx_v_img_x2 - (*((int *) ( /* dim=0 */ ((char *) (((int *) __pyx_v_input_resolution.data) + __pyx_t_1)) ))));
+    __pyx_t_2 = 1;
+    __pyx_v_ret_x2 = ((*((int *) ( /* dim=0 */ ((char *) (((int *) __pyx_v_retina_size.data) + __pyx_t_1)) ))) - (__pyx_v_img_x2 - (*((int *) ( /* dim=0 */ ((char *) (((int *) __pyx_v_input_resolution.data) + __pyx_t_2)) )))));
 </pre><pre class="cython line score-0" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">15</span>:         <span class="n">img_x2</span> <span class="o">=</span> <span class="n">input_resolution</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span></pre>
-<pre class='cython code score-0 '>    __pyx_t_1 = 1;
-    __pyx_v_img_x2 = (*((int *) ( /* dim=0 */ ((char *) (((int *) __pyx_v_input_resolution.data) + __pyx_t_1)) )));
+<pre class='cython code score-0 '>    __pyx_t_2 = 1;
+    __pyx_v_img_x2 = (*((int *) ( /* dim=0 */ ((char *) (((int *) __pyx_v_input_resolution.data) + __pyx_t_2)) )));
 </pre><pre class="cython line score-0" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">16</span>:     <span class="k">if</span> <span class="n">img_y1</span><span class="o">&lt;</span><span class="mf">0</span><span class="p">:</span></pre>
 <pre class='cython code score-0 '>  __pyx_t_11 = ((__pyx_v_img_y1 &lt; 0) != 0);
   if (__pyx_t_11) {
@@ -574,14 +575,15 @@ static PyObject *__pyx_pf_9functions_get_bounds(CYTHON_UNUSED PyObject *__pyx_se
 </pre><pre class="cython line score-0" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">18</span>:         <span class="n">img_y1</span> <span class="o">=</span> <span class="mf">0</span></pre>
 <pre class='cython code score-0 '>    __pyx_v_img_y1 = 0;
 </pre><pre class="cython line score-0" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">19</span>:     <span class="k">if</span> <span class="n">img_y2</span><span class="o">&gt;</span><span class="n">input_resolution</span><span class="p">[</span><span class="mf">0</span><span class="p">]:</span></pre>
-<pre class='cython code score-0 '>  __pyx_t_1 = 0;
-  __pyx_t_11 = ((__pyx_v_img_y2 &gt; (*((int *) ( /* dim=0 */ ((char *) (((int *) __pyx_v_input_resolution.data) + __pyx_t_1)) )))) != 0);
+<pre class='cython code score-0 '>  __pyx_t_2 = 0;
+  __pyx_t_11 = ((__pyx_v_img_y2 &gt; (*((int *) ( /* dim=0 */ ((char *) (((int *) __pyx_v_input_resolution.data) + __pyx_t_2)) )))) != 0);
   if (__pyx_t_11) {
 /* … */
   }
-</pre><pre class="cython line score-0" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">20</span>:         <span class="n">ret_y2</span> <span class="o">=</span> <span class="n">img_y2</span><span class="o">-</span><span class="n">input_resolution</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span></pre>
-<pre class='cython code score-0 '>    __pyx_t_1 = 0;
-    __pyx_v_ret_y2 = (__pyx_v_img_y2 - (*((int *) ( /* dim=0 */ ((char *) (((int *) __pyx_v_input_resolution.data) + __pyx_t_1)) ))));
+</pre><pre class="cython line score-0" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">20</span>:         <span class="n">ret_y2</span> <span class="o">=</span> <span class="n">retina_size</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span><span class="o">-</span><span class="p">(</span><span class="n">img_y2</span><span class="o">-</span><span class="n">input_resolution</span><span class="p">[</span><span class="mf">0</span><span class="p">])</span></pre>
+<pre class='cython code score-0 '>    __pyx_t_2 = 0;
+    __pyx_t_1 = 0;
+    __pyx_v_ret_y2 = ((*((int *) ( /* dim=0 */ ((char *) (((int *) __pyx_v_retina_size.data) + __pyx_t_2)) ))) - (__pyx_v_img_y2 - (*((int *) ( /* dim=0 */ ((char *) (((int *) __pyx_v_input_resolution.data) + __pyx_t_1)) )))));
 </pre><pre class="cython line score-0" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">21</span>:         <span class="n">img_y2</span> <span class="o">=</span> <span class="n">input_resolution</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span></pre>
 <pre class='cython code score-0 '>    __pyx_t_1 = 0;
     __pyx_v_img_y2 = (*((int *) ( /* dim=0 */ ((char *) (((int *) __pyx_v_input_resolution.data) + __pyx_t_1)) )));
@@ -1665,8 +1667,8 @@ static PyObject *__pyx_pf_9functions_12backProjectRGB(CYTHON_UNUSED PyObject *__
         __pyx_L5:;
       }
   }
-</pre><pre class="cython line score-0" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">79</span>:         <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">BP_R</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mf">0</span><span class="p">]):</span></pre>
-<pre class='cython code score-0 '>        __pyx_t_1 = (__pyx_v_BP_R.shape[0]);
+</pre><pre class="cython line score-0" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">79</span>:         <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">coeffs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mf">0</span><span class="p">]):</span></pre>
+<pre class='cython code score-0 '>        __pyx_t_1 = (__pyx_v_coeffs.shape[0]);
         __pyx_t_2 = __pyx_t_1;
         for (__pyx_t_3 = 0; __pyx_t_3 &lt; __pyx_t_2; __pyx_t_3+=1) {
           __pyx_v_x = __pyx_t_3;

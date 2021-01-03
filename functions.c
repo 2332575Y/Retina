@@ -2169,7 +2169,7 @@ static PyObject *__pyx_f_9functions_get_bounds(__Pyx_memviewslice __pyx_v_input_
  *         ret_x1 = -img_x1
  *         img_x1 = 0             # <<<<<<<<<<<<<<
  *     if img_x2>input_resolution[1]:
- *         ret_x2 = img_x2-input_resolution[1]
+ *         ret_x2 = retina_size[1]-(img_x2-input_resolution[1])
  */
     __pyx_v_img_x1 = 0;
 
@@ -2186,7 +2186,7 @@ static PyObject *__pyx_f_9functions_get_bounds(__Pyx_memviewslice __pyx_v_input_
  *         ret_x1 = -img_x1
  *         img_x1 = 0
  *     if img_x2>input_resolution[1]:             # <<<<<<<<<<<<<<
- *         ret_x2 = img_x2-input_resolution[1]
+ *         ret_x2 = retina_size[1]-(img_x2-input_resolution[1])
  *         img_x2 = input_resolution[1]
  */
   __pyx_t_1 = 1;
@@ -2196,34 +2196,35 @@ static PyObject *__pyx_f_9functions_get_bounds(__Pyx_memviewslice __pyx_v_input_
     /* "functions.pyx":14
  *         img_x1 = 0
  *     if img_x2>input_resolution[1]:
- *         ret_x2 = img_x2-input_resolution[1]             # <<<<<<<<<<<<<<
+ *         ret_x2 = retina_size[1]-(img_x2-input_resolution[1])             # <<<<<<<<<<<<<<
  *         img_x2 = input_resolution[1]
  *     if img_y1<0:
  */
     __pyx_t_1 = 1;
-    __pyx_v_ret_x2 = (__pyx_v_img_x2 - (*((int *) ( /* dim=0 */ ((char *) (((int *) __pyx_v_input_resolution.data) + __pyx_t_1)) ))));
+    __pyx_t_2 = 1;
+    __pyx_v_ret_x2 = ((*((int *) ( /* dim=0 */ ((char *) (((int *) __pyx_v_retina_size.data) + __pyx_t_1)) ))) - (__pyx_v_img_x2 - (*((int *) ( /* dim=0 */ ((char *) (((int *) __pyx_v_input_resolution.data) + __pyx_t_2)) )))));
 
     /* "functions.pyx":15
  *     if img_x2>input_resolution[1]:
- *         ret_x2 = img_x2-input_resolution[1]
+ *         ret_x2 = retina_size[1]-(img_x2-input_resolution[1])
  *         img_x2 = input_resolution[1]             # <<<<<<<<<<<<<<
  *     if img_y1<0:
  *         ret_y1 = -img_y1
  */
-    __pyx_t_1 = 1;
-    __pyx_v_img_x2 = (*((int *) ( /* dim=0 */ ((char *) (((int *) __pyx_v_input_resolution.data) + __pyx_t_1)) )));
+    __pyx_t_2 = 1;
+    __pyx_v_img_x2 = (*((int *) ( /* dim=0 */ ((char *) (((int *) __pyx_v_input_resolution.data) + __pyx_t_2)) )));
 
     /* "functions.pyx":13
  *         ret_x1 = -img_x1
  *         img_x1 = 0
  *     if img_x2>input_resolution[1]:             # <<<<<<<<<<<<<<
- *         ret_x2 = img_x2-input_resolution[1]
+ *         ret_x2 = retina_size[1]-(img_x2-input_resolution[1])
  *         img_x2 = input_resolution[1]
  */
   }
 
   /* "functions.pyx":16
- *         ret_x2 = img_x2-input_resolution[1]
+ *         ret_x2 = retina_size[1]-(img_x2-input_resolution[1])
  *         img_x2 = input_resolution[1]
  *     if img_y1<0:             # <<<<<<<<<<<<<<
  *         ret_y1 = -img_y1
@@ -2246,12 +2247,12 @@ static PyObject *__pyx_f_9functions_get_bounds(__Pyx_memviewslice __pyx_v_input_
  *         ret_y1 = -img_y1
  *         img_y1 = 0             # <<<<<<<<<<<<<<
  *     if img_y2>input_resolution[0]:
- *         ret_y2 = img_y2-input_resolution[0]
+ *         ret_y2 = retina_size[0]-(img_y2-input_resolution[0])
  */
     __pyx_v_img_y1 = 0;
 
     /* "functions.pyx":16
- *         ret_x2 = img_x2-input_resolution[1]
+ *         ret_x2 = retina_size[1]-(img_x2-input_resolution[1])
  *         img_x2 = input_resolution[1]
  *     if img_y1<0:             # <<<<<<<<<<<<<<
  *         ret_y1 = -img_y1
@@ -2263,26 +2264,27 @@ static PyObject *__pyx_f_9functions_get_bounds(__Pyx_memviewslice __pyx_v_input_
  *         ret_y1 = -img_y1
  *         img_y1 = 0
  *     if img_y2>input_resolution[0]:             # <<<<<<<<<<<<<<
- *         ret_y2 = img_y2-input_resolution[0]
+ *         ret_y2 = retina_size[0]-(img_y2-input_resolution[0])
  *         img_y2 = input_resolution[0]
  */
-  __pyx_t_1 = 0;
-  __pyx_t_11 = ((__pyx_v_img_y2 > (*((int *) ( /* dim=0 */ ((char *) (((int *) __pyx_v_input_resolution.data) + __pyx_t_1)) )))) != 0);
+  __pyx_t_2 = 0;
+  __pyx_t_11 = ((__pyx_v_img_y2 > (*((int *) ( /* dim=0 */ ((char *) (((int *) __pyx_v_input_resolution.data) + __pyx_t_2)) )))) != 0);
   if (__pyx_t_11) {
 
     /* "functions.pyx":20
  *         img_y1 = 0
  *     if img_y2>input_resolution[0]:
- *         ret_y2 = img_y2-input_resolution[0]             # <<<<<<<<<<<<<<
+ *         ret_y2 = retina_size[0]-(img_y2-input_resolution[0])             # <<<<<<<<<<<<<<
  *         img_y2 = input_resolution[0]
  *     return (img_x1, img_y1, img_x2, img_y2, ret_x1, ret_y1, ret_x2, ret_y2)
  */
+    __pyx_t_2 = 0;
     __pyx_t_1 = 0;
-    __pyx_v_ret_y2 = (__pyx_v_img_y2 - (*((int *) ( /* dim=0 */ ((char *) (((int *) __pyx_v_input_resolution.data) + __pyx_t_1)) ))));
+    __pyx_v_ret_y2 = ((*((int *) ( /* dim=0 */ ((char *) (((int *) __pyx_v_retina_size.data) + __pyx_t_2)) ))) - (__pyx_v_img_y2 - (*((int *) ( /* dim=0 */ ((char *) (((int *) __pyx_v_input_resolution.data) + __pyx_t_1)) )))));
 
     /* "functions.pyx":21
  *     if img_y2>input_resolution[0]:
- *         ret_y2 = img_y2-input_resolution[0]
+ *         ret_y2 = retina_size[0]-(img_y2-input_resolution[0])
  *         img_y2 = input_resolution[0]             # <<<<<<<<<<<<<<
  *     return (img_x1, img_y1, img_x2, img_y2, ret_x1, ret_y1, ret_x2, ret_y2)
  * 
@@ -2294,13 +2296,13 @@ static PyObject *__pyx_f_9functions_get_bounds(__Pyx_memviewslice __pyx_v_input_
  *         ret_y1 = -img_y1
  *         img_y1 = 0
  *     if img_y2>input_resolution[0]:             # <<<<<<<<<<<<<<
- *         ret_y2 = img_y2-input_resolution[0]
+ *         ret_y2 = retina_size[0]-(img_y2-input_resolution[0])
  *         img_y2 = input_resolution[0]
  */
   }
 
   /* "functions.pyx":22
- *         ret_y2 = img_y2-input_resolution[0]
+ *         ret_y2 = retina_size[0]-(img_y2-input_resolution[0])
  *         img_y2 = input_resolution[0]
  *     return (img_x1, img_y1, img_x2, img_y2, ret_x1, ret_y1, ret_x2, ret_y2)             # <<<<<<<<<<<<<<
  * 
@@ -3659,7 +3661,7 @@ static PyObject *__pyx_f_9functions_backProjectRGB(__Pyx_memviewslice __pyx_v_re
  *     cdef unsigned long x, index
  *     cdef unsigned short coeff
  *     with nogil:             # <<<<<<<<<<<<<<
- *         for x in range(BP_R.shape[0]):
+ *         for x in range(coeffs.shape[0]):
  *             coeff = coeffs[x]
  */
   {
@@ -3673,18 +3675,18 @@ static PyObject *__pyx_f_9functions_backProjectRGB(__Pyx_memviewslice __pyx_v_re
         /* "functions.pyx":79
  *     cdef unsigned short coeff
  *     with nogil:
- *         for x in range(BP_R.shape[0]):             # <<<<<<<<<<<<<<
+ *         for x in range(coeffs.shape[0]):             # <<<<<<<<<<<<<<
  *             coeff = coeffs[x]
  *             if coeff > 0:
  */
-        __pyx_t_1 = (__pyx_v_BP_R.shape[0]);
+        __pyx_t_1 = (__pyx_v_coeffs.shape[0]);
         __pyx_t_2 = __pyx_t_1;
         for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
           __pyx_v_x = __pyx_t_3;
 
           /* "functions.pyx":80
  *     with nogil:
- *         for x in range(BP_R.shape[0]):
+ *         for x in range(coeffs.shape[0]):
  *             coeff = coeffs[x]             # <<<<<<<<<<<<<<
  *             if coeff > 0:
  *                 index = idx[x]
@@ -3693,7 +3695,7 @@ static PyObject *__pyx_f_9functions_backProjectRGB(__Pyx_memviewslice __pyx_v_re
           __pyx_v_coeff = (*((unsigned short *) ( /* dim=0 */ ((char *) (((unsigned short *) __pyx_v_coeffs.data) + __pyx_t_4)) )));
 
           /* "functions.pyx":81
- *         for x in range(BP_R.shape[0]):
+ *         for x in range(coeffs.shape[0]):
  *             coeff = coeffs[x]
  *             if coeff > 0:             # <<<<<<<<<<<<<<
  *                 index = idx[x]
@@ -3749,7 +3751,7 @@ static PyObject *__pyx_f_9functions_backProjectRGB(__Pyx_memviewslice __pyx_v_re
             *((unsigned PY_LONG_LONG *) ( /* dim=0 */ ((char *) (((unsigned PY_LONG_LONG *) __pyx_v_BP_B.data) + __pyx_t_7)) )) += ((*((unsigned PY_LONG_LONG *) ( /* dim=0 */ ((char *) (((unsigned PY_LONG_LONG *) __pyx_v_result_B.data) + __pyx_t_4)) ))) * (*((unsigned short *) ( /* dim=0 */ ((char *) (((unsigned short *) __pyx_v_coeffs.data) + __pyx_t_6)) ))));
 
             /* "functions.pyx":81
- *         for x in range(BP_R.shape[0]):
+ *         for x in range(coeffs.shape[0]):
  *             coeff = coeffs[x]
  *             if coeff > 0:             # <<<<<<<<<<<<<<
  *                 index = idx[x]
@@ -3763,7 +3765,7 @@ static PyObject *__pyx_f_9functions_backProjectRGB(__Pyx_memviewslice __pyx_v_re
  *     cdef unsigned long x, index
  *     cdef unsigned short coeff
  *     with nogil:             # <<<<<<<<<<<<<<
- *         for x in range(BP_R.shape[0]):
+ *         for x in range(coeffs.shape[0]):
  *             coeff = coeffs[x]
  */
       /*finally:*/ {

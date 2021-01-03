@@ -11,13 +11,13 @@ cpdef get_bounds(int[::1] input_resolution, int[::1]retina_size, int[::1]fixatio
         ret_x1 = -img_x1
         img_x1 = 0
     if img_x2>input_resolution[1]:
-        ret_x2 = img_x2-input_resolution[1]
+        ret_x2 = retina_size[1]-(img_x2-input_resolution[1])
         img_x2 = input_resolution[1]
     if img_y1<0:
         ret_y1 = -img_y1
         img_y1 = 0
     if img_y2>input_resolution[0]:
-        ret_y2 = img_y2-input_resolution[0]
+        ret_y2 = retina_size[0]-(img_y2-input_resolution[0])
         img_y2 = input_resolution[0]
     return (img_x1, img_y1, img_x2, img_y2, ret_x1, ret_y1, ret_x2, ret_y2)
 
@@ -76,7 +76,7 @@ cpdef backProjectRGB(unsigned long long[::1] result_R, unsigned long long[::1] r
     cdef unsigned long x, index
     cdef unsigned short coeff
     with nogil:
-        for x in range(BP_R.shape[0]):
+        for x in range(coeffs.shape[0]):
             coeff = coeffs[x]
             if coeff > 0:
                 index = idx[x]
