@@ -640,7 +640,7 @@ static PyObject *__pyx_pf_9functions_get_bounds(CYTHON_UNUSED PyObject *__pyx_se
 <pre class="cython line score-11" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">26</span>: <span class="k">cpdef</span> <span class="nf">zeros_int32</span><span class="p">(</span><span class="nb">unsigned</span> <span class="nb">long</span> <span class="nb">long</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">arr</span><span class="p">):</span></pre>
 <pre class='cython code score-11 '>static PyObject *__pyx_pw_9functions_3zeros_int32(PyObject *__pyx_self, PyObject *__pyx_arg_arr); /*proto*/
 static PyObject *__pyx_f_9functions_zeros_int32(__Pyx_memviewslice __pyx_v_arr, CYTHON_UNUSED int __pyx_skip_dispatch) {
-  unsigned long __pyx_v_x;
+  unsigned int __pyx_v_x;
   PyObject *__pyx_r = NULL;
   <span class='refnanny'>__Pyx_RefNannyDeclarations</span>
   <span class='refnanny'>__Pyx_RefNannySetupContext</span>("zeros_int32", 0);
@@ -701,7 +701,7 @@ static PyObject *__pyx_pf_9functions_2zeros_int32(CYTHON_UNUSED PyObject *__pyx_
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return __pyx_r;
 }
-</pre><pre class="cython line score-0">&#xA0;<span class="">27</span>:     <span class="k">cdef</span> <span class="kt">unsigned</span> <span class="kt">long</span> <span class="nf">x</span></pre>
+</pre><pre class="cython line score-0">&#xA0;<span class="">27</span>:     <span class="k">cdef</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="nf">x</span></pre>
 <pre class="cython line score-4" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">28</span>:     <span class="k">with</span> <span class="k">nogil</span><span class="p">:</span></pre>
 <pre class='cython code score-4 '>  {
       #ifdef WITH_THREAD
@@ -739,7 +739,7 @@ static PyObject *__pyx_pf_9functions_2zeros_int32(CYTHON_UNUSED PyObject *__pyx_
 <pre class="cython line score-37" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">35</span>: <span class="k">cpdef</span> <span class="nf">normalize</span><span class="p">(</span><span class="nb">unsigned</span> <span class="nb">long</span> <span class="nb">long</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">BP_flat</span><span class="p">,</span> <span class="nb">unsigned</span> <span class="nb">long</span> <span class="nb">long</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">norm_flat</span><span class="p">):</span></pre>
 <pre class='cython code score-37 '>static PyObject *__pyx_pw_9functions_5normalize(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
 static PyObject *__pyx_f_9functions_normalize(__Pyx_memviewslice __pyx_v_BP_flat, __Pyx_memviewslice __pyx_v_norm_flat, CYTHON_UNUSED int __pyx_skip_dispatch) {
-  unsigned long __pyx_v_x;
+  unsigned int __pyx_v_x;
   PyObject *__pyx_r = NULL;
   <span class='refnanny'>__Pyx_RefNannyDeclarations</span>
   <span class='refnanny'>__Pyx_RefNannySetupContext</span>("normalize", 0);
@@ -840,7 +840,7 @@ static PyObject *__pyx_pf_9functions_4normalize(CYTHON_UNUSED PyObject *__pyx_se
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return __pyx_r;
 }
-</pre><pre class="cython line score-0">&#xA0;<span class="">36</span>:     <span class="k">cdef</span> <span class="kt">unsigned</span> <span class="kt">long</span> <span class="nf">x</span></pre>
+</pre><pre class="cython line score-0">&#xA0;<span class="">36</span>:     <span class="k">cdef</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="nf">x</span></pre>
 <pre class="cython line score-4" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">37</span>:     <span class="k">with</span> <span class="k">nogil</span><span class="p">:</span></pre>
 <pre class='cython code score-4 '>  {
       #ifdef WITH_THREAD
@@ -876,10 +876,10 @@ static PyObject *__pyx_pf_9functions_4normalize(CYTHON_UNUSED PyObject *__pyx_se
 </pre><pre class="cython line score-0">&#xA0;<span class="">40</span>: </pre>
 <pre class="cython line score-0">&#xA0;<span class="">41</span>: <span class="nd">@cython</span><span class="o">.</span><span class="n">wraparound</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span></pre>
 <pre class="cython line score-0">&#xA0;<span class="">42</span>: <span class="nd">@cython</span><span class="o">.</span><span class="n">boundscheck</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span></pre>
-<pre class="cython line score-57" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">43</span>: <span class="k">cpdef</span> <span class="nf">sample</span><span class="p">(</span><span class="nb">unsigned</span> <span class="n">char</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">img_flat</span><span class="p">,</span> <span class="nb">unsigned</span> <span class="n">short</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">coeffs</span><span class="p">,</span> <span class="nb">unsigned</span> <span class="nb">long</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">idx</span><span class="p">,</span> <span class="nb">unsigned</span> <span class="nb">long</span> <span class="nb">long</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">result_flat</span><span class="p">):</span></pre>
+<pre class="cython line score-57" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">43</span>: <span class="k">cpdef</span> <span class="nf">sample</span><span class="p">(</span><span class="nb">unsigned</span> <span class="n">char</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">img_flat</span><span class="p">,</span> <span class="nb">unsigned</span> <span class="n">short</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">coeffs</span><span class="p">,</span> <span class="nb">unsigned</span> <span class="nb">int</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">idx</span><span class="p">,</span> <span class="nb">unsigned</span> <span class="nb">long</span> <span class="nb">long</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">result_flat</span><span class="p">):</span></pre>
 <pre class='cython code score-57 '>static PyObject *__pyx_pw_9functions_7sample(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
 static PyObject *__pyx_f_9functions_sample(__Pyx_memviewslice __pyx_v_img_flat, __Pyx_memviewslice __pyx_v_coeffs, __Pyx_memviewslice __pyx_v_idx, __Pyx_memviewslice __pyx_v_result_flat, CYTHON_UNUSED int __pyx_skip_dispatch) {
-  unsigned long __pyx_v_x;
+  unsigned int __pyx_v_x;
   PyObject *__pyx_r = NULL;
   <span class='refnanny'>__Pyx_RefNannyDeclarations</span>
   <span class='refnanny'>__Pyx_RefNannySetupContext</span>("sample", 0);
@@ -956,7 +956,7 @@ static PyObject *__pyx_pw_9functions_7sample(PyObject *__pyx_self, PyObject *__p
     }
     __pyx_v_img_flat = <span class='pyx_c_api'>__Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_char</span>(values[0], PyBUF_WRITABLE);<span class='error_goto'> if (unlikely(!__pyx_v_img_flat.memview)) __PYX_ERR(0, 43, __pyx_L3_error)</span>
     __pyx_v_coeffs = <span class='pyx_c_api'>__Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_short</span>(values[1], PyBUF_WRITABLE);<span class='error_goto'> if (unlikely(!__pyx_v_coeffs.memview)) __PYX_ERR(0, 43, __pyx_L3_error)</span>
-    __pyx_v_idx = <span class='pyx_c_api'>__Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_long</span>(values[2], PyBUF_WRITABLE);<span class='error_goto'> if (unlikely(!__pyx_v_idx.memview)) __PYX_ERR(0, 43, __pyx_L3_error)</span>
+    __pyx_v_idx = <span class='pyx_c_api'>__Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_int</span>(values[2], PyBUF_WRITABLE);<span class='error_goto'> if (unlikely(!__pyx_v_idx.memview)) __PYX_ERR(0, 43, __pyx_L3_error)</span>
     __pyx_v_result_flat = <span class='pyx_c_api'>__Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_PY_LONG_LONG</span>(values[3], PyBUF_WRITABLE);<span class='error_goto'> if (unlikely(!__pyx_v_result_flat.memview)) __PYX_ERR(0, 43, __pyx_L3_error)</span>
   }
   goto __pyx_L4_argument_unpacking_done;
@@ -1006,7 +1006,7 @@ static PyObject *__pyx_pf_9functions_6sample(CYTHON_UNUSED PyObject *__pyx_self,
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return __pyx_r;
 }
-</pre><pre class="cython line score-0">&#xA0;<span class="">44</span>:     <span class="k">cdef</span> <span class="kt">unsigned</span> <span class="kt">long</span> <span class="nf">x</span></pre>
+</pre><pre class="cython line score-0">&#xA0;<span class="">44</span>:     <span class="k">cdef</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="nf">x</span></pre>
 <pre class="cython line score-4" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">45</span>:     <span class="k">with</span> <span class="k">nogil</span><span class="p">:</span></pre>
 <pre class='cython code score-4 '>  {
       #ifdef WITH_THREAD
@@ -1044,15 +1044,15 @@ static PyObject *__pyx_pf_9functions_6sample(CYTHON_UNUSED PyObject *__pyx_self,
 <pre class='cython code score-0 '>            __pyx_t_4 = __pyx_v_x;
             __pyx_t_6 = __pyx_v_x;
             __pyx_t_7 = __pyx_v_x;
-            __pyx_t_8 = (*((unsigned long *) ( /* dim=0 */ ((char *) (((unsigned long *) __pyx_v_idx.data) + __pyx_t_7)) )));
+            __pyx_t_8 = (*((unsigned int *) ( /* dim=0 */ ((char *) (((unsigned int *) __pyx_v_idx.data) + __pyx_t_7)) )));
             *((unsigned PY_LONG_LONG *) ( /* dim=0 */ ((char *) (((unsigned PY_LONG_LONG *) __pyx_v_result_flat.data) + __pyx_t_8)) )) += ((*((unsigned char *) ( /* dim=0 */ ((char *) (((unsigned char *) __pyx_v_img_flat.data) + __pyx_t_4)) ))) * (*((unsigned short *) ( /* dim=0 */ ((char *) (((unsigned short *) __pyx_v_coeffs.data) + __pyx_t_6)) ))));
 </pre><pre class="cython line score-0">&#xA0;<span class="">49</span>: </pre>
 <pre class="cython line score-0">&#xA0;<span class="">50</span>: <span class="nd">@cython</span><span class="o">.</span><span class="n">wraparound</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span></pre>
 <pre class="cython line score-0">&#xA0;<span class="">51</span>: <span class="nd">@cython</span><span class="o">.</span><span class="n">boundscheck</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span></pre>
-<pre class="cython line score-57" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">52</span>: <span class="k">cpdef</span> <span class="nf">backProject</span><span class="p">(</span><span class="nb">unsigned</span> <span class="nb">long</span> <span class="nb">long</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">result_flat</span><span class="p">,</span> <span class="nb">unsigned</span> <span class="n">short</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">coeffs</span><span class="p">,</span> <span class="nb">unsigned</span> <span class="nb">long</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">idx</span><span class="p">,</span> <span class="nb">unsigned</span> <span class="nb">long</span> <span class="nb">long</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">back_projected</span><span class="p">):</span></pre>
+<pre class="cython line score-57" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">52</span>: <span class="k">cpdef</span> <span class="nf">backProject</span><span class="p">(</span><span class="nb">unsigned</span> <span class="nb">long</span> <span class="nb">long</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">result_flat</span><span class="p">,</span> <span class="nb">unsigned</span> <span class="n">short</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">coeffs</span><span class="p">,</span> <span class="nb">unsigned</span> <span class="nb">int</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">idx</span><span class="p">,</span> <span class="nb">unsigned</span> <span class="nb">long</span> <span class="nb">long</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">back_projected</span><span class="p">):</span></pre>
 <pre class='cython code score-57 '>static PyObject *__pyx_pw_9functions_9backProject(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
 static PyObject *__pyx_f_9functions_backProject(__Pyx_memviewslice __pyx_v_result_flat, __Pyx_memviewslice __pyx_v_coeffs, __Pyx_memviewslice __pyx_v_idx, __Pyx_memviewslice __pyx_v_back_projected, CYTHON_UNUSED int __pyx_skip_dispatch) {
-  unsigned long __pyx_v_x;
+  unsigned int __pyx_v_x;
   PyObject *__pyx_r = NULL;
   <span class='refnanny'>__Pyx_RefNannyDeclarations</span>
   <span class='refnanny'>__Pyx_RefNannySetupContext</span>("backProject", 0);
@@ -1129,7 +1129,7 @@ static PyObject *__pyx_pw_9functions_9backProject(PyObject *__pyx_self, PyObject
     }
     __pyx_v_result_flat = <span class='pyx_c_api'>__Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_PY_LONG_LONG</span>(values[0], PyBUF_WRITABLE);<span class='error_goto'> if (unlikely(!__pyx_v_result_flat.memview)) __PYX_ERR(0, 52, __pyx_L3_error)</span>
     __pyx_v_coeffs = <span class='pyx_c_api'>__Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_short</span>(values[1], PyBUF_WRITABLE);<span class='error_goto'> if (unlikely(!__pyx_v_coeffs.memview)) __PYX_ERR(0, 52, __pyx_L3_error)</span>
-    __pyx_v_idx = <span class='pyx_c_api'>__Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_long</span>(values[2], PyBUF_WRITABLE);<span class='error_goto'> if (unlikely(!__pyx_v_idx.memview)) __PYX_ERR(0, 52, __pyx_L3_error)</span>
+    __pyx_v_idx = <span class='pyx_c_api'>__Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_int</span>(values[2], PyBUF_WRITABLE);<span class='error_goto'> if (unlikely(!__pyx_v_idx.memview)) __PYX_ERR(0, 52, __pyx_L3_error)</span>
     __pyx_v_back_projected = <span class='pyx_c_api'>__Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_PY_LONG_LONG</span>(values[3], PyBUF_WRITABLE);<span class='error_goto'> if (unlikely(!__pyx_v_back_projected.memview)) __PYX_ERR(0, 52, __pyx_L3_error)</span>
   }
   goto __pyx_L4_argument_unpacking_done;
@@ -1179,7 +1179,7 @@ static PyObject *__pyx_pf_9functions_8backProject(CYTHON_UNUSED PyObject *__pyx_
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return __pyx_r;
 }
-</pre><pre class="cython line score-0">&#xA0;<span class="">53</span>:     <span class="k">cdef</span> <span class="kt">unsigned</span> <span class="kt">long</span> <span class="nf">x</span></pre>
+</pre><pre class="cython line score-0">&#xA0;<span class="">53</span>:     <span class="k">cdef</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="nf">x</span></pre>
 <pre class="cython line score-4" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">54</span>:     <span class="k">with</span> <span class="k">nogil</span><span class="p">:</span></pre>
 <pre class='cython code score-4 '>  {
       #ifdef WITH_THREAD
@@ -1215,18 +1215,18 @@ static PyObject *__pyx_pf_9functions_8backProject(CYTHON_UNUSED PyObject *__pyx_
       }
 </pre><pre class="cython line score-0" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">57</span>:                  <span class="n">back_projected</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">+=</span> <span class="n">result_flat</span><span class="p">[</span><span class="n">idx</span><span class="p">[</span><span class="n">x</span><span class="p">]]</span><span class="o">*</span><span class="n">coeffs</span><span class="p">[</span><span class="n">x</span><span class="p">]</span></pre>
 <pre class='cython code score-0 '>            __pyx_t_4 = __pyx_v_x;
-            __pyx_t_6 = (*((unsigned long *) ( /* dim=0 */ ((char *) (((unsigned long *) __pyx_v_idx.data) + __pyx_t_4)) )));
+            __pyx_t_6 = (*((unsigned int *) ( /* dim=0 */ ((char *) (((unsigned int *) __pyx_v_idx.data) + __pyx_t_4)) )));
             __pyx_t_7 = __pyx_v_x;
             __pyx_t_8 = __pyx_v_x;
             *((unsigned PY_LONG_LONG *) ( /* dim=0 */ ((char *) (((unsigned PY_LONG_LONG *) __pyx_v_back_projected.data) + __pyx_t_8)) )) += ((*((unsigned PY_LONG_LONG *) ( /* dim=0 */ ((char *) (((unsigned PY_LONG_LONG *) __pyx_v_result_flat.data) + __pyx_t_6)) ))) * (*((unsigned short *) ( /* dim=0 */ ((char *) (((unsigned short *) __pyx_v_coeffs.data) + __pyx_t_7)) ))));
 </pre><pre class="cython line score-0">&#xA0;<span class="">58</span>: </pre>
 <pre class="cython line score-0">&#xA0;<span class="">59</span>: <span class="nd">@cython</span><span class="o">.</span><span class="n">wraparound</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span></pre>
 <pre class="cython line score-0">&#xA0;<span class="">60</span>: <span class="nd">@cython</span><span class="o">.</span><span class="n">boundscheck</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span></pre>
-<pre class="cython line score-97" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">61</span>: <span class="k">cpdef</span> <span class="nf">sampleRGB</span><span class="p">(</span><span class="nb">unsigned</span> <span class="n">char</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">R</span><span class="p">,</span> <span class="nb">unsigned</span> <span class="n">char</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">G</span><span class="p">,</span> <span class="nb">unsigned</span> <span class="n">char</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">B</span><span class="p">,</span> <span class="nb">unsigned</span> <span class="n">short</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">coeffs</span><span class="p">,</span> <span class="nb">unsigned</span> <span class="nb">long</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">idx</span><span class="p">,</span> <span class="nb">unsigned</span> <span class="nb">long</span> <span class="nb">long</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">result_R</span><span class="p">,</span> <span class="nb">unsigned</span> <span class="nb">long</span> <span class="nb">long</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">result_G</span><span class="p">,</span> <span class="nb">unsigned</span> <span class="nb">long</span> <span class="nb">long</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">result_B</span><span class="p">):</span></pre>
+<pre class="cython line score-97" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">61</span>: <span class="k">cpdef</span> <span class="nf">sampleRGB</span><span class="p">(</span><span class="nb">unsigned</span> <span class="n">char</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">R</span><span class="p">,</span> <span class="nb">unsigned</span> <span class="n">char</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">G</span><span class="p">,</span> <span class="nb">unsigned</span> <span class="n">char</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">B</span><span class="p">,</span> <span class="nb">unsigned</span> <span class="n">short</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">coeffs</span><span class="p">,</span> <span class="nb">unsigned</span> <span class="nb">int</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">idx</span><span class="p">,</span> <span class="nb">unsigned</span> <span class="nb">long</span> <span class="nb">long</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">result_R</span><span class="p">,</span> <span class="nb">unsigned</span> <span class="nb">long</span> <span class="nb">long</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">result_G</span><span class="p">,</span> <span class="nb">unsigned</span> <span class="nb">long</span> <span class="nb">long</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">result_B</span><span class="p">):</span></pre>
 <pre class='cython code score-97 '>static PyObject *__pyx_pw_9functions_11sampleRGB(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
 static PyObject *__pyx_f_9functions_sampleRGB(__Pyx_memviewslice __pyx_v_R, __Pyx_memviewslice __pyx_v_G, __Pyx_memviewslice __pyx_v_B, __Pyx_memviewslice __pyx_v_coeffs, __Pyx_memviewslice __pyx_v_idx, __Pyx_memviewslice __pyx_v_result_R, __Pyx_memviewslice __pyx_v_result_G, __Pyx_memviewslice __pyx_v_result_B, CYTHON_UNUSED int __pyx_skip_dispatch) {
-  unsigned long __pyx_v_x;
-  unsigned long __pyx_v_index;
+  unsigned int __pyx_v_x;
+  unsigned int __pyx_v_index;
   unsigned short __pyx_v_coeff;
   PyObject *__pyx_r = NULL;
   <span class='refnanny'>__Pyx_RefNannyDeclarations</span>
@@ -1346,7 +1346,7 @@ static PyObject *__pyx_pw_9functions_11sampleRGB(PyObject *__pyx_self, PyObject 
     __pyx_v_G = <span class='pyx_c_api'>__Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_char</span>(values[1], PyBUF_WRITABLE);<span class='error_goto'> if (unlikely(!__pyx_v_G.memview)) __PYX_ERR(0, 61, __pyx_L3_error)</span>
     __pyx_v_B = <span class='pyx_c_api'>__Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_char</span>(values[2], PyBUF_WRITABLE);<span class='error_goto'> if (unlikely(!__pyx_v_B.memview)) __PYX_ERR(0, 61, __pyx_L3_error)</span>
     __pyx_v_coeffs = <span class='pyx_c_api'>__Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_short</span>(values[3], PyBUF_WRITABLE);<span class='error_goto'> if (unlikely(!__pyx_v_coeffs.memview)) __PYX_ERR(0, 61, __pyx_L3_error)</span>
-    __pyx_v_idx = <span class='pyx_c_api'>__Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_long</span>(values[4], PyBUF_WRITABLE);<span class='error_goto'> if (unlikely(!__pyx_v_idx.memview)) __PYX_ERR(0, 61, __pyx_L3_error)</span>
+    __pyx_v_idx = <span class='pyx_c_api'>__Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_int</span>(values[4], PyBUF_WRITABLE);<span class='error_goto'> if (unlikely(!__pyx_v_idx.memview)) __PYX_ERR(0, 61, __pyx_L3_error)</span>
     __pyx_v_result_R = <span class='pyx_c_api'>__Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_PY_LONG_LONG</span>(values[5], PyBUF_WRITABLE);<span class='error_goto'> if (unlikely(!__pyx_v_result_R.memview)) __PYX_ERR(0, 61, __pyx_L3_error)</span>
     __pyx_v_result_G = <span class='pyx_c_api'>__Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_PY_LONG_LONG</span>(values[6], PyBUF_WRITABLE);<span class='error_goto'> if (unlikely(!__pyx_v_result_G.memview)) __PYX_ERR(0, 61, __pyx_L3_error)</span>
     __pyx_v_result_B = <span class='pyx_c_api'>__Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_PY_LONG_LONG</span>(values[7], PyBUF_WRITABLE);<span class='error_goto'> if (unlikely(!__pyx_v_result_B.memview)) __PYX_ERR(0, 61, __pyx_L3_error)</span>
@@ -1406,7 +1406,7 @@ static PyObject *__pyx_pf_9functions_10sampleRGB(CYTHON_UNUSED PyObject *__pyx_s
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return __pyx_r;
 }
-</pre><pre class="cython line score-0">&#xA0;<span class="">62</span>:     <span class="k">cdef</span> <span class="kt">unsigned</span> <span class="kt">long</span> <span class="nf">x</span><span class="p">,</span> <span class="nf">index</span></pre>
+</pre><pre class="cython line score-0">&#xA0;<span class="">62</span>:     <span class="k">cdef</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="nf">x</span><span class="p">,</span> <span class="nf">index</span></pre>
 <pre class="cython line score-0">&#xA0;<span class="">63</span>:     <span class="k">cdef</span> <span class="kt">unsigned</span> <span class="kt">short</span> <span class="nf">coeff</span></pre>
 <pre class="cython line score-4" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">64</span>:     <span class="k">with</span> <span class="k">nogil</span><span class="p">:</span></pre>
 <pre class='cython code score-4 '>  {
@@ -1445,7 +1445,7 @@ static PyObject *__pyx_pf_9functions_10sampleRGB(CYTHON_UNUSED PyObject *__pyx_s
       }
 </pre><pre class="cython line score-0" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">68</span>:                 <span class="n">index</span> <span class="o">=</span> <span class="n">idx</span><span class="p">[</span><span class="n">x</span><span class="p">]</span></pre>
 <pre class='cython code score-0 '>            __pyx_t_4 = __pyx_v_x;
-            __pyx_v_index = (*((unsigned long *) ( /* dim=0 */ ((char *) (((unsigned long *) __pyx_v_idx.data) + __pyx_t_4)) )));
+            __pyx_v_index = (*((unsigned int *) ( /* dim=0 */ ((char *) (((unsigned int *) __pyx_v_idx.data) + __pyx_t_4)) )));
 </pre><pre class="cython line score-0" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">69</span>:                 <span class="n">result_R</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">+=</span> <span class="n">R</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">*</span><span class="n">coeff</span></pre>
 <pre class='cython code score-0 '>            __pyx_t_4 = __pyx_v_x;
             __pyx_t_6 = __pyx_v_index;
@@ -1461,11 +1461,11 @@ static PyObject *__pyx_pf_9functions_10sampleRGB(CYTHON_UNUSED PyObject *__pyx_s
 </pre><pre class="cython line score-0">&#xA0;<span class="">72</span>: </pre>
 <pre class="cython line score-0">&#xA0;<span class="">73</span>: <span class="nd">@cython</span><span class="o">.</span><span class="n">wraparound</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span></pre>
 <pre class="cython line score-0">&#xA0;<span class="">74</span>: <span class="nd">@cython</span><span class="o">.</span><span class="n">boundscheck</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span></pre>
-<pre class="cython line score-97" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">75</span>: <span class="k">cpdef</span> <span class="nf">backProjectRGB</span><span class="p">(</span><span class="nb">unsigned</span> <span class="nb">long</span> <span class="nb">long</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">result_R</span><span class="p">,</span> <span class="nb">unsigned</span> <span class="nb">long</span> <span class="nb">long</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">result_G</span><span class="p">,</span> <span class="nb">unsigned</span> <span class="nb">long</span> <span class="nb">long</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">result_B</span><span class="p">,</span> <span class="nb">unsigned</span> <span class="n">short</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">coeffs</span><span class="p">,</span> <span class="nb">unsigned</span> <span class="nb">long</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">idx</span><span class="p">,</span> <span class="nb">unsigned</span> <span class="nb">long</span> <span class="nb">long</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">BP_R</span><span class="p">,</span> <span class="nb">unsigned</span> <span class="nb">long</span> <span class="nb">long</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">BP_G</span><span class="p">,</span> <span class="nb">unsigned</span> <span class="nb">long</span> <span class="nb">long</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">BP_B</span><span class="p">):</span></pre>
+<pre class="cython line score-97" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">75</span>: <span class="k">cpdef</span> <span class="nf">backProjectRGB</span><span class="p">(</span><span class="nb">unsigned</span> <span class="nb">long</span> <span class="nb">long</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">result_R</span><span class="p">,</span> <span class="nb">unsigned</span> <span class="nb">long</span> <span class="nb">long</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">result_G</span><span class="p">,</span> <span class="nb">unsigned</span> <span class="nb">long</span> <span class="nb">long</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">result_B</span><span class="p">,</span> <span class="nb">unsigned</span> <span class="n">short</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">coeffs</span><span class="p">,</span> <span class="nb">unsigned</span> <span class="nb">int</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">idx</span><span class="p">,</span> <span class="nb">unsigned</span> <span class="nb">long</span> <span class="nb">long</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">BP_R</span><span class="p">,</span> <span class="nb">unsigned</span> <span class="nb">long</span> <span class="nb">long</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">BP_G</span><span class="p">,</span> <span class="nb">unsigned</span> <span class="nb">long</span> <span class="nb">long</span><span class="p">[::</span><span class="mf">1</span><span class="p">]</span> <span class="n">BP_B</span><span class="p">):</span></pre>
 <pre class='cython code score-97 '>static PyObject *__pyx_pw_9functions_13backProjectRGB(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
 static PyObject *__pyx_f_9functions_backProjectRGB(__Pyx_memviewslice __pyx_v_result_R, __Pyx_memviewslice __pyx_v_result_G, __Pyx_memviewslice __pyx_v_result_B, __Pyx_memviewslice __pyx_v_coeffs, __Pyx_memviewslice __pyx_v_idx, __Pyx_memviewslice __pyx_v_BP_R, __Pyx_memviewslice __pyx_v_BP_G, __Pyx_memviewslice __pyx_v_BP_B, CYTHON_UNUSED int __pyx_skip_dispatch) {
-  unsigned long __pyx_v_x;
-  unsigned long __pyx_v_index;
+  unsigned int __pyx_v_x;
+  unsigned int __pyx_v_index;
   unsigned short __pyx_v_coeff;
   PyObject *__pyx_r = NULL;
   <span class='refnanny'>__Pyx_RefNannyDeclarations</span>
@@ -1585,7 +1585,7 @@ static PyObject *__pyx_pw_9functions_13backProjectRGB(PyObject *__pyx_self, PyOb
     __pyx_v_result_G = <span class='pyx_c_api'>__Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_PY_LONG_LONG</span>(values[1], PyBUF_WRITABLE);<span class='error_goto'> if (unlikely(!__pyx_v_result_G.memview)) __PYX_ERR(0, 75, __pyx_L3_error)</span>
     __pyx_v_result_B = <span class='pyx_c_api'>__Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_PY_LONG_LONG</span>(values[2], PyBUF_WRITABLE);<span class='error_goto'> if (unlikely(!__pyx_v_result_B.memview)) __PYX_ERR(0, 75, __pyx_L3_error)</span>
     __pyx_v_coeffs = <span class='pyx_c_api'>__Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_short</span>(values[3], PyBUF_WRITABLE);<span class='error_goto'> if (unlikely(!__pyx_v_coeffs.memview)) __PYX_ERR(0, 75, __pyx_L3_error)</span>
-    __pyx_v_idx = <span class='pyx_c_api'>__Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_long</span>(values[4], PyBUF_WRITABLE);<span class='error_goto'> if (unlikely(!__pyx_v_idx.memview)) __PYX_ERR(0, 75, __pyx_L3_error)</span>
+    __pyx_v_idx = <span class='pyx_c_api'>__Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_int</span>(values[4], PyBUF_WRITABLE);<span class='error_goto'> if (unlikely(!__pyx_v_idx.memview)) __PYX_ERR(0, 75, __pyx_L3_error)</span>
     __pyx_v_BP_R = <span class='pyx_c_api'>__Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_PY_LONG_LONG</span>(values[5], PyBUF_WRITABLE);<span class='error_goto'> if (unlikely(!__pyx_v_BP_R.memview)) __PYX_ERR(0, 75, __pyx_L3_error)</span>
     __pyx_v_BP_G = <span class='pyx_c_api'>__Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_PY_LONG_LONG</span>(values[6], PyBUF_WRITABLE);<span class='error_goto'> if (unlikely(!__pyx_v_BP_G.memview)) __PYX_ERR(0, 75, __pyx_L3_error)</span>
     __pyx_v_BP_B = <span class='pyx_c_api'>__Pyx_PyObject_to_MemoryviewSlice_dc_unsigned_PY_LONG_LONG</span>(values[7], PyBUF_WRITABLE);<span class='error_goto'> if (unlikely(!__pyx_v_BP_B.memview)) __PYX_ERR(0, 75, __pyx_L3_error)</span>
@@ -1645,7 +1645,7 @@ static PyObject *__pyx_pf_9functions_12backProjectRGB(CYTHON_UNUSED PyObject *__
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return __pyx_r;
 }
-</pre><pre class="cython line score-0">&#xA0;<span class="">76</span>:     <span class="k">cdef</span> <span class="kt">unsigned</span> <span class="kt">long</span> <span class="nf">x</span><span class="p">,</span> <span class="nf">index</span></pre>
+</pre><pre class="cython line score-0">&#xA0;<span class="">76</span>:     <span class="k">cdef</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="nf">x</span><span class="p">,</span> <span class="nf">index</span></pre>
 <pre class="cython line score-0">&#xA0;<span class="">77</span>:     <span class="k">cdef</span> <span class="kt">unsigned</span> <span class="kt">short</span> <span class="nf">coeff</span></pre>
 <pre class="cython line score-4" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">78</span>:     <span class="k">with</span> <span class="k">nogil</span><span class="p">:</span></pre>
 <pre class='cython code score-4 '>  {
@@ -1684,7 +1684,7 @@ static PyObject *__pyx_pf_9functions_12backProjectRGB(CYTHON_UNUSED PyObject *__
       }
 </pre><pre class="cython line score-0" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">82</span>:                 <span class="n">index</span> <span class="o">=</span> <span class="n">idx</span><span class="p">[</span><span class="n">x</span><span class="p">]</span></pre>
 <pre class='cython code score-0 '>            __pyx_t_4 = __pyx_v_x;
-            __pyx_v_index = (*((unsigned long *) ( /* dim=0 */ ((char *) (((unsigned long *) __pyx_v_idx.data) + __pyx_t_4)) )));
+            __pyx_v_index = (*((unsigned int *) ( /* dim=0 */ ((char *) (((unsigned int *) __pyx_v_idx.data) + __pyx_t_4)) )));
 </pre><pre class="cython line score-0" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">83</span>:                 <span class="n">BP_R</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">+=</span> <span class="n">result_R</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">*</span><span class="n">coeffs</span><span class="p">[</span><span class="n">x</span><span class="p">]</span></pre>
 <pre class='cython code score-0 '>            __pyx_t_4 = __pyx_v_index;
             __pyx_t_6 = __pyx_v_x;
@@ -1704,8 +1704,8 @@ static PyObject *__pyx_pf_9functions_12backProjectRGB(CYTHON_UNUSED PyObject *__
 <pre class="cython line score-0">&#xA0;<span class="">87</span>: <span class="c">####################################################</span></pre>
 <pre class="cython line score-0">&#xA0;<span class="">88</span>: <span class="c"># @cython.wraparound(False)</span></pre>
 <pre class="cython line score-0">&#xA0;<span class="">89</span>: <span class="c"># @cython.boundscheck(False)            </span></pre>
-<pre class="cython line score-0">&#xA0;<span class="">90</span>: <span class="c"># cpdef sample_parallel(unsigned char[::1] img_flat, unsigned short[::1] coeffs, unsigned long[::1] idx, unsigned long long[::1] result_flat, unsigned int nThreads):</span></pre>
-<pre class="cython line score-0">&#xA0;<span class="">91</span>: <span class="c">#     cdef unsigned long x</span></pre>
+<pre class="cython line score-0">&#xA0;<span class="">90</span>: <span class="c"># cpdef sample_parallel(unsigned char[::1] img_flat, unsigned short[::1] coeffs, unsigned int[::1] idx, unsigned long long[::1] result_flat, unsigned int nThreads):</span></pre>
+<pre class="cython line score-0">&#xA0;<span class="">91</span>: <span class="c">#     cdef unsigned int x</span></pre>
 <pre class="cython line score-0">&#xA0;<span class="">92</span>: <span class="c">#     with nogil, parallel(num_threads=nThreads):</span></pre>
 <pre class="cython line score-0">&#xA0;<span class="">93</span>: <span class="c">#         for x in prange(img_flat.shape[0]):</span></pre>
 <pre class="cython line score-0">&#xA0;<span class="">94</span>: <span class="c">#             if coeffs[x] &gt; 0:</span></pre>

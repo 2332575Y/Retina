@@ -24,7 +24,7 @@ cpdef get_bounds(int[::1] input_resolution, int[::1]retina_size, int[::1]fixatio
 @cython.wraparound(False)
 @cython.boundscheck(False)            
 cpdef zeros_int32(unsigned long long[::1] arr):
-    cdef unsigned long x
+    cdef unsigned int x
     with nogil:
         for x in range(arr.shape[0]):
             arr[x] = 0
@@ -33,15 +33,15 @@ cpdef zeros_int32(unsigned long long[::1] arr):
 @cython.boundscheck(False)
 @cython.cdivision(True)
 cpdef normalize(unsigned long long[::1] BP_flat, unsigned long long[::1] norm_flat):
-    cdef unsigned long x
+    cdef unsigned int x
     with nogil:
         for x in range(BP_flat.shape[0]):
             BP_flat[x] = BP_flat[x]//norm_flat[x]
 
 @cython.wraparound(False)
 @cython.boundscheck(False)            
-cpdef sample(unsigned char[::1] img_flat, unsigned short[::1] coeffs, unsigned long[::1] idx, unsigned long long[::1] result_flat):
-    cdef unsigned long x
+cpdef sample(unsigned char[::1] img_flat, unsigned short[::1] coeffs, unsigned int[::1] idx, unsigned long long[::1] result_flat):
+    cdef unsigned int x
     with nogil:
         for x in range(img_flat.shape[0]):
             if coeffs[x] > 0:
@@ -49,8 +49,8 @@ cpdef sample(unsigned char[::1] img_flat, unsigned short[::1] coeffs, unsigned l
 
 @cython.wraparound(False)
 @cython.boundscheck(False)            
-cpdef backProject(unsigned long long[::1] result_flat, unsigned short[::1] coeffs, unsigned long[::1] idx, unsigned long long[::1] back_projected):
-    cdef unsigned long x
+cpdef backProject(unsigned long long[::1] result_flat, unsigned short[::1] coeffs, unsigned int[::1] idx, unsigned long long[::1] back_projected):
+    cdef unsigned int x
     with nogil:
         for x in range(coeffs.shape[0]):
             if coeffs[x] > 0:
@@ -58,8 +58,8 @@ cpdef backProject(unsigned long long[::1] result_flat, unsigned short[::1] coeff
 
 @cython.wraparound(False)
 @cython.boundscheck(False)            
-cpdef sampleRGB(unsigned char[::1] R, unsigned char[::1] G, unsigned char[::1] B, unsigned short[::1] coeffs, unsigned long[::1] idx, unsigned long long[::1] result_R, unsigned long long[::1] result_G, unsigned long long[::1] result_B):
-    cdef unsigned long x, index
+cpdef sampleRGB(unsigned char[::1] R, unsigned char[::1] G, unsigned char[::1] B, unsigned short[::1] coeffs, unsigned int[::1] idx, unsigned long long[::1] result_R, unsigned long long[::1] result_G, unsigned long long[::1] result_B):
+    cdef unsigned int x, index
     cdef unsigned short coeff
     with nogil:
         for x in range(R.shape[0]):
@@ -72,8 +72,8 @@ cpdef sampleRGB(unsigned char[::1] R, unsigned char[::1] G, unsigned char[::1] B
                     
 @cython.wraparound(False)
 @cython.boundscheck(False)
-cpdef backProjectRGB(unsigned long long[::1] result_R, unsigned long long[::1] result_G, unsigned long long[::1] result_B, unsigned short[::1] coeffs, unsigned long[::1] idx, unsigned long long[::1] BP_R, unsigned long long[::1] BP_G, unsigned long long[::1] BP_B):
-    cdef unsigned long x, index
+cpdef backProjectRGB(unsigned long long[::1] result_R, unsigned long long[::1] result_G, unsigned long long[::1] result_B, unsigned short[::1] coeffs, unsigned int[::1] idx, unsigned long long[::1] BP_R, unsigned long long[::1] BP_G, unsigned long long[::1] BP_B):
+    cdef unsigned int x, index
     cdef unsigned short coeff
     with nogil:
         for x in range(coeffs.shape[0]):
@@ -87,8 +87,8 @@ cpdef backProjectRGB(unsigned long long[::1] result_R, unsigned long long[::1] r
 ####################################################
 # @cython.wraparound(False)
 # @cython.boundscheck(False)            
-# cpdef sample_parallel(unsigned char[::1] img_flat, unsigned short[::1] coeffs, unsigned long[::1] idx, unsigned long long[::1] result_flat, unsigned int nThreads):
-#     cdef unsigned long x
+# cpdef sample_parallel(unsigned char[::1] img_flat, unsigned short[::1] coeffs, unsigned int[::1] idx, unsigned long long[::1] result_flat, unsigned int nThreads):
+#     cdef unsigned int x
 #     with nogil, parallel(num_threads=nThreads):
 #         for x in prange(img_flat.shape[0]):
 #             if coeffs[x] > 0:
