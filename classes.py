@@ -132,7 +132,7 @@ class Retina:
             self.sample = self.sample_rgb
             self.backProject = self.backProject_rgb
             self.createNormalizationImage = self.createNormalizationImage_rgb
-            self.getResult = lambda: divideRGB(self.sampledVector, self.scalingFactor)
+            self.getResult = lambda: divideRGB(np.copy(self.sampledVector), self.scalingFactor)
         else:
             self.sampledVector = np.zeros(numFields, dtype=numpy_types[types['RESULTS']])
             self.sample = self.sample_gray
@@ -219,6 +219,8 @@ class Cortex:
             self.right_hemi.coeff_layers[i] = np.rot90(self.right_hemi.coeff_layers[i],-1).ravel()
             self.right_hemi.index_layers[i] = np.rot90(self.right_hemi.index_layers[i],-1).ravel()
         self.right_hemi.size = self.right_hemi.size[::-1]
+        
+        self.size = np.array((self.left_hemi.size[0],self.left_hemi.size[1]*2), dtype='int32')
         
     def backProject_gray(self, sampledVector):
         self.left_hemi.backProject_gray(sampledVector)
