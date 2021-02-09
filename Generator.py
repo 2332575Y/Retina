@@ -12,11 +12,7 @@ def loadConfig(fname):
         globals()[str(key)] = config[key]
     globals()['configFile'] = fname
     
-try:
-    loadConfig('config.pkl')
-except:
-    print("Failed to load the config file!")
-    quit()
+loadConfig('config.pkl')
 
 class layerGenerator:
     def __init__(self, mode):
@@ -55,7 +51,7 @@ class layerGenerator:
                 if mb.askyesno("Data not loaded correctly!", "Would you like to abort?", parent=root):
                     break
         if self.locs is None:
-            quit()
+            raise Exception('Could not load location data!')
         root.destroy()
         w = 2*int(np.abs(self.locs[:,0]).max() + self.locs[:,6].max()/2.0)
         h = 2*int(np.abs(self.locs[:,1]).max() + self.locs[:,6].max()/2.0)
@@ -82,10 +78,7 @@ class layerGenerator:
                 if mb.askyesno("Data not loaded correctly!", "Would you like to abort?", parent=root):
                     break
         if self.coeffs is None:
-            quit()
-        #################################
-        #################################
-        #################################
+            raise Exception('Could not load coefficients!')
         numFields = len(self.locs)+1
 
     def packPixels(self, toInts=True):

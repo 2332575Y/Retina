@@ -1,5 +1,5 @@
 cimport cython
-#from cython.parallel import parallel, prange
+import numpy as np
 
 @cython.wraparound(False)
 @cython.boundscheck(False)    
@@ -21,22 +21,9 @@ cpdef get_bounds(int[::1] input_resolution, int[::1]retina_size, int[::1]fixatio
         img_y2 = input_resolution[0]
     return (img_x1, img_y1, img_x2, img_y2, ret_x1, ret_y1, ret_x2, ret_y2)
 
-@cython.wraparound(False)
-@cython.boundscheck(False)            
-cpdef zeros_int32(unsigned long long[::1] arr):
-    cdef unsigned int x
-    with nogil:
-        for x in range(arr.shape[0]):
-            arr[x] = 0
-
-@cython.wraparound(False)
-@cython.boundscheck(False)
-@cython.cdivision(True)
-cpdef normalize(unsigned long long[::1] BP_flat, unsigned long long[::1] norm_flat):
-    cdef unsigned int x
-    with nogil:
-        for x in range(BP_flat.shape[0]):
-            BP_flat[x] = BP_flat[x]//norm_flat[x]
+########################################
+############## GRAY SCALE ##############
+########################################
 
 @cython.wraparound(False)
 @cython.boundscheck(False)            
@@ -57,6 +44,22 @@ cpdef backProject(unsigned long long[::1] result_flat, unsigned short[::1] coeff
                  back_projected[x] += result_flat[idx[x]]*coeffs[x]
 
 @cython.wraparound(False)
+@cython.boundscheck(False)
+@cython.cdivision(True)
+cpdef normalize(unsigned long long[::1] BP_flat, unsigned long long[::1] norm_flat):
+    cdef unsigned int x
+    cdef unsigned long long c
+    with nogil:
+        for x in range(BP_flat.shape[0]):
+            c = norm_flat[x]
+            if c>1:
+                BP_flat[x] = BP_flat[x]//c
+
+#########################################
+################## RGB ##################
+#########################################
+
+@cython.wraparound(False)
 @cython.boundscheck(False)            
 cpdef sampleRGB(unsigned char[::1] R, unsigned char[::1] G, unsigned char[::1] B, unsigned short[::1] coeffs, unsigned int[::1] idx, unsigned long long[::1] result_R, unsigned long long[::1] result_G, unsigned long long[::1] result_B):
     cdef unsigned int x, index
@@ -69,7 +72,7 @@ cpdef sampleRGB(unsigned char[::1] R, unsigned char[::1] G, unsigned char[::1] B
                 result_R[index] += R[x]*coeff
                 result_G[index] += G[x]*coeff
                 result_B[index] += B[x]*coeff
-                    
+
 @cython.wraparound(False)
 @cython.boundscheck(False)
 cpdef backProjectRGB(unsigned long long[::1] result_R, unsigned long long[::1] result_G, unsigned long long[::1] result_B, unsigned short[::1] coeffs, unsigned int[::1] idx, unsigned long long[::1] BP_R, unsigned long long[::1] BP_G, unsigned long long[::1] BP_B):
@@ -83,13 +86,29 @@ cpdef backProjectRGB(unsigned long long[::1] result_R, unsigned long long[::1] r
                 BP_R[x] += result_R[index]*coeffs[x]
                 BP_G[x] += result_G[index]*coeffs[x]
                 BP_B[x] += result_B[index]*coeffs[x]
+
+@cython.wraparound(False)
+@cython.boundscheck(False)
+@cython.cdivision(True)
+cpdef normalizeRGB(unsigned long long[::1] R_flat, unsigned long long[::1] G_flat, unsigned long long[::1] B_flat, unsigned long long[::1] norm_flat):
+    cdef unsigned int x
+    cdef unsigned long long c
+    with nogil:
+        for x in range(R_flat.shape[0]):
+            c = norm_flat[x]
+            if c>1:
+                R_flat[x] = R_flat[x]//c
+                G_flat[x] = G_flat[x]//c
+                B_flat[x] = B_flat[x]//c
                 
-####################################################
-# @cython.wraparound(False)
-# @cython.boundscheck(False)            
-# cpdef sample_parallel(unsigned char[::1] img_flat, unsigned short[::1] coeffs, unsigned int[::1] idx, unsigned long long[::1] result_flat, unsigned int nThreads):
-#     cdef unsigned int x
-#     with nogil, parallel(num_threads=nThreads):
-#         for x in prange(img_flat.shape[0]):
-#             if coeffs[x] > 0:
-#                 result_flat[idx[x]] += img_flat[x]*coeffs[x]
+@cython.wraparound(False)
+@cython.boundscheck(False)
+@cython.cdivision(True)
+cpdef divideRGB(unsigned long long[:,::1] result , double c):
+    cdef unsigned int x
+    with nogil:
+        for x in range(result.shape[1]):
+            result[0,x] = <unsigned long long>(result[0,x]//c)
+            result[1,x] = <unsigned long long>(result[1,x]//c)
+            result[2,x] = <unsigned long long>(result[2,x]//c)
+    return np.asarray(result)
