@@ -1,0 +1,5 @@
+If functions.pyx file does not exist, run the cython compiler notebook to generate one.After making sure
+the functions.pyx exists, run the following commands to generate the "functions" library and the cython report:
+
+python setup.py build_ext --inplace
+cython -a functions.pyx
