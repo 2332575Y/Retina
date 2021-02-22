@@ -35,8 +35,8 @@ def get_cortexBackProjected_GRAY(cortex):
     return np.concatenate((Limg, Rimg), axis=1)
 
 def get_cortexBackProjected_RGB(cortex):
-    Limg = get_retinaBackProjected_BGR(cortex.left_hemi)
-    Rimg = get_retinaBackProjected_BGR(cortex.right_hemi)
+    Limg = get_retinaBackProjected_RGB(cortex.left_hemi)
+    Rimg = get_retinaBackProjected_RGB(cortex.right_hemi)
     return np.concatenate((Limg, Rimg), axis=1)
 
 def get_cortexBackProjected_BGR(cortex):
