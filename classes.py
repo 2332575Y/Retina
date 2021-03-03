@@ -377,7 +377,7 @@ class layerGenerator:
         if toInts:
             self.scalingFactor = ((2**self.quantization_bits)-1) / np.max(self.coeff_layers)
             for i in range(len(self.coeff_layers)):
-                self.coeff_layers[i] = (self.coeff_layers[i]*self.scalingFactor).astype(numpy_types[types['COEFFICIENTS']])
+                self.coeff_layers[i] = np.round(self.coeff_layers[i]*self.scalingFactor).astype(numpy_types[types['COEFFICIENTS']])
                 self.index_layers[i] = self.index_layers[i].astype(numpy_types[types['INDEX']])
         else:
             self.scalingFactor = 1
@@ -425,7 +425,7 @@ class layerGenerator:
         if toInts:
             self.scalingFactor = ((2**self.quantization_bits)-1) / np.max(self.coeff_layers)
             for i in range(len(self.coeff_layers)):
-                self.coeff_layers[i] = (self.coeff_layers[i]*self.scalingFactor).astype(numpy_types[types['COEFFICIENTS']])
+                self.coeff_layers[i] = np.round(self.coeff_layers[i]*self.scalingFactor).astype(numpy_types[types['COEFFICIENTS']])
                 self.index_layers[i] = self.index_layers[i].astype(numpy_types[types['INDEX']])
         else:
             self.scalingFactor = 1
