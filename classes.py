@@ -194,9 +194,7 @@ class Hemisphere:
         self.backProjectedVector = np.zeros((3, self.size[0]*self.size[1]), dtype=numpy_types[types['BAKC_PROJECTED']])
         for i in range(len(self.coeff_layers)):
             backProjectRGB(sampledVector[0], sampledVector[1], sampledVector[2], self.coeff_layers[i], self.index_layers[i], self.backProjectedVector[0], self.backProjectedVector[1], self.backProjectedVector[2])
-        normalize(self.backProjectedVector[0], self.normalizationVector)
-        normalize(self.backProjectedVector[1], self.normalizationVector)
-        normalize(self.backProjectedVector[2], self.normalizationVector)
+        normalizeRGB(self.backProjectedVector[0], self.backProjectedVector[1], self.backProjectedVector[2], self.normalizationVector)
 
 #===============================================================================================================================
 #===============================================================================================================================
