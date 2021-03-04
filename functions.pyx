@@ -27,7 +27,7 @@ cpdef get_bounds(int[::1] input_resolution, int[::1]retina_size, int[::1]fixatio
 
 @cython.wraparound(False)
 @cython.boundscheck(False)            
-cpdef sample(unsigned char[::1] img_flat, unsigned short[::1] coeffs, unsigned int[::1] idx, unsigned long long[::1] result_flat):
+cpdef sample(unsigned char[::1] img_flat, unsigned short[::1] coeffs, unsigned int[::1] idx, unsigned int[::1] result_flat):
     cdef unsigned int x
     with nogil:
         for x in range(img_flat.shape[0]):
@@ -36,12 +36,12 @@ cpdef sample(unsigned char[::1] img_flat, unsigned short[::1] coeffs, unsigned i
 
 @cython.wraparound(False)
 @cython.boundscheck(False)            
-cpdef backProject(unsigned long long[::1] result_flat, unsigned short[::1] coeffs, unsigned int[::1] idx, unsigned long long[::1] back_projected):
+cpdef backProject(unsigned int[::1] result_flat, unsigned short[::1] coeffs, unsigned int[::1] idx, unsigned long long[::1] back_projected):
     cdef unsigned int x
     with nogil:
         for x in range(coeffs.shape[0]):
             if coeffs[x] > 0:
-                 back_projected[x] += result_flat[idx[x]]*coeffs[x]
+                 back_projected[x] += <unsigned long long>result_flat[idx[x]]*coeffs[x]
 
 @cython.wraparound(False)
 @cython.boundscheck(False)
@@ -61,7 +61,7 @@ cpdef normalize(unsigned long long[::1] BP_flat, unsigned long long[::1] norm_fl
 
 @cython.wraparound(False)
 @cython.boundscheck(False)            
-cpdef sampleRGB(unsigned char[::1] R, unsigned char[::1] G, unsigned char[::1] B, unsigned short[::1] coeffs, unsigned int[::1] idx, unsigned long long[::1] result_R, unsigned long long[::1] result_G, unsigned long long[::1] result_B):
+cpdef sampleRGB(unsigned char[::1] R, unsigned char[::1] G, unsigned char[::1] B, unsigned short[::1] coeffs, unsigned int[::1] idx, unsigned int[::1] result_R, unsigned int[::1] result_G, unsigned int[::1] result_B):
     cdef unsigned int x, index
     cdef unsigned short coeff
     with nogil:
@@ -75,7 +75,7 @@ cpdef sampleRGB(unsigned char[::1] R, unsigned char[::1] G, unsigned char[::1] B
 
 @cython.wraparound(False)
 @cython.boundscheck(False)
-cpdef backProjectRGB(unsigned long long[::1] result_R, unsigned long long[::1] result_G, unsigned long long[::1] result_B, unsigned short[::1] coeffs, unsigned int[::1] idx, unsigned long long[::1] BP_R, unsigned long long[::1] BP_G, unsigned long long[::1] BP_B):
+cpdef backProjectRGB(unsigned int[::1] result_R, unsigned int[::1] result_G, unsigned int[::1] result_B, unsigned short[::1] coeffs, unsigned int[::1] idx, unsigned long long[::1] BP_R, unsigned long long[::1] BP_G, unsigned long long[::1] BP_B):
     cdef unsigned int x, index
     cdef unsigned short coeff
     with nogil:
@@ -83,9 +83,9 @@ cpdef backProjectRGB(unsigned long long[::1] result_R, unsigned long long[::1] r
             coeff = coeffs[x]
             if coeff > 0:
                 index = idx[x]
-                BP_R[x] += result_R[index]*coeffs[x]
-                BP_G[x] += result_G[index]*coeffs[x]
-                BP_B[x] += result_B[index]*coeffs[x]
+                BP_R[x] += <unsigned long long>result_R[index]*coeffs[x]
+                BP_G[x] += <unsigned long long>result_G[index]*coeffs[x]
+                BP_B[x] += <unsigned long long>result_B[index]*coeffs[x]
 
 @cython.wraparound(False)
 @cython.boundscheck(False)
@@ -104,11 +104,11 @@ cpdef normalizeRGB(unsigned long long[::1] R_flat, unsigned long long[::1] G_fla
 @cython.wraparound(False)
 @cython.boundscheck(False)
 @cython.cdivision(True)
-cpdef divideRGB(unsigned long long[:,::1] result , double c):
+cpdef divideRGB(unsigned int[:,::1] result , double c):
     cdef unsigned int x
     with nogil:
         for x in range(result.shape[1]):
-            result[0,x] = <unsigned long long>(result[0,x]//c)
-            result[1,x] = <unsigned long long>(result[1,x]//c)
-            result[2,x] = <unsigned long long>(result[2,x]//c)
+            result[0,x] = <unsigned int>(result[0,x]//c)
+            result[1,x] = <unsigned int>(result[1,x]//c)
+            result[2,x] = <unsigned int>(result[2,x]//c)
     return np.asarray(result)

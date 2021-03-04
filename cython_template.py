@@ -41,7 +41,7 @@ cpdef backProject({RESULTS}[::1] result_flat, {COEFFICIENTS}[::1] coeffs, {INDEX
     with nogil:
         for x in range(coeffs.shape[0]):
             if coeffs[x] > 0:
-                 back_projected[x] += result_flat[idx[x]]*coeffs[x]
+                 back_projected[x] += <{BAKC_PROJECTED}>result_flat[idx[x]]*coeffs[x]
 
 @cython.wraparound(False)
 @cython.boundscheck(False)
@@ -83,9 +83,9 @@ cpdef backProjectRGB({RESULTS}[::1] result_R, {RESULTS}[::1] result_G, {RESULTS}
             coeff = coeffs[x]
             if coeff > 0:
                 index = idx[x]
-                BP_R[x] += result_R[index]*coeffs[x]
-                BP_G[x] += result_G[index]*coeffs[x]
-                BP_B[x] += result_B[index]*coeffs[x]
+                BP_R[x] += <{BAKC_PROJECTED}>result_R[index]*coeffs[x]
+                BP_G[x] += <{BAKC_PROJECTED}>result_G[index]*coeffs[x]
+                BP_B[x] += <{BAKC_PROJECTED}>result_B[index]*coeffs[x]
 
 @cython.wraparound(False)
 @cython.boundscheck(False)
