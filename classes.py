@@ -429,9 +429,10 @@ class layerGenerator:
             self.scalingFactor = 1
 
         
-    def save(self, outputFile):
+    def save(self, outputFile, saveConfig=False):
         savePickle(outputFile, (self.coeff_layers,self.index_layers,self.scalingFactor))
-        config = {'types' : types,
-                  'numpy_types' : numpy_types,
-                  'numFields' : numFields}
-        savePickle(configFile, config)
+        if saveConfig:
+            config = {'types' : types,
+                      'numpy_types' : numpy_types,
+                      'numFields' : len(self.coeffs)+1}
+            savePickle(configFile, config)
