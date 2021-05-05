@@ -6,3 +6,4 @@ build
 Visualizations.ipynb
 *.pyd
 functions.c
+*.pkl
